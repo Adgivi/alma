@@ -1,5 +1,5 @@
 <template>
-  <footer></footer>
+  <footer>adgivi</footer>
 </template>
 
 <script>
