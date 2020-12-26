@@ -1,73 +1,133 @@
-html {
-  background: url(../assets/header-bk.jpg) no-repeat center top, #112545;
-  background-size: 100% auto;
-  font-family: "Baloo Paaji 2", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  color: #bcc0cc;
-}
+/* ==========================================================================
+   INUITCSS
+   ========================================================================== */
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
+/**
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
 
-a,
-a:visited,
-a:active {
-  text-decoration: none;
-  color: #ed8367;
-}
+/**
+ * This is an example inuitcss manifest file. DO NOT MODIFY THIS FILE DIRECTLY.
+ * Instead, copy and paste it into your own CSS directory and make additions,
+ * extensions, and modifications there.
+ */
 
-.container {
-  margin: 0 auto;
-  padding: 25vw 20px 100px;
-  min-height: 100vh;
-  max-width: 700px;
-}
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Config...............Project-level configuration and feature switches.
+ * Core.................inuitcss’ core and setup settings.
+ * Global...............Project-wide variables and settings.
+ *
+ * TOOLS
+ * Font-size............A mixin which guarantees baseline-friendly line-heights.
+ * Clearfix.............Micro clearfix mixin.
+ * Hidden...............Mixin for hiding elements.
+ * Sass MQ..............inuitcss’ default media query manager.
+ *
+ * GENERIC
+ * Box-sizing...........Better default `box-sizing`.
+ * Normalize.css........A level playing field using @necolas’ Normalize.css.
+ * Reset................A tiny reset to complement Normalize.css.
+ * Shared...............Sensibly and tersely share some global commonalities
+ *                      (particularly useful when managing vertical rhythm).
+ *
+ * ELEMENTS
+ * Page.................Set up our document’s default `font-size` and
+ *                      `line-height`.
+ * Headings.............Very minimal (i.e. only font-size information) for
+ *                      headings 1 through 6.
+ * Images...............Base image styles.
+ * Tables...............Simple table styles.
+ *
+ * OBJECTS
+ * Wrapper..............Page constraint object.
+ * Layout...............Generic layout module.
+ * Media................Image- and text-like content side by side. The
+ *                      poster-child of OOCSS.
+ * Flag.................Table-layout-based advancement on the Media object.
+ * List-bare............Lists with no bullets or indents.
+ * List-inline..........A list whose items all site in a line.
+ * Box..................Simple boxing abstraction.
+ * Block................Image-on-top-of-text object.
+ * Ratio................A container for maintaining aspect ratio of content.
+ * Crop.................Provide a cropping context for media (images, etc.).
+ * Table................Classes for manipulating `table`s.
+ * Pack.................Pack items into available horizontal space.
+ *
+ * COMPONENTS
+ * Buttons..............An example button component, and how it fits into the
+ *                      inuitcss framework.
+ *
+ * UTILITIES
+ * Clearfix.............Bind our clearfix onto a utility class.
+ * Widths...............Simple width helper classes.
+ * Headings.............Reassigning our heading styles to helper classes.
+ * Spacings.............Nudge bits of the DOM around with these spacing
+ *                      classes.
+ * Responsive-Spacings..Enhances the function of normal spacings for
+ *                      responsive usage.
+ * Print................Reset-like styles taken from the HTML5 Boilerplate.
+ * Hide.................Helper classes to hide content
+ */
 
-hr {
-  border-color: #63567b;
-}
+// SETTINGS
+@import "~inuitcss/settings/example.settings.config";
+@import "~inuitcss/settings/settings.core";
+@import "~inuitcss/settings/example.settings.global";
 
-h1,
-h2,
-h3 {
-  font-weight: 500;
-  margin-top: 30px;
-  line-height: 1;
-}
+// TOOLS
+@import "~inuitcss/tools/tools.font-size";
+@import "~inuitcss/tools/tools.clearfix";
+@import "~inuitcss/tools/tools.hidden";
+@import "node_modules/sass-mq/mq";
 
-h1 {
-  font-size: 55px;
-  font-family: "Molle", cursive;
-  text-shadow: 0 1px 0 #403c61, 0 2px 0 #403c61, 0 3px 0 #403c61,
-    0 4px 0 rgb(104, 81, 148), 0 5px 0 #55486d, 0 6px 1px rgba(0, 0, 0, 0.1),
-    0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
-    0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
-}
+// GENERIC
+@import "~inuitcss/generic/generic.box-sizing";
+@import "~inuitcss/generic/generic.normalize";
+@import "~inuitcss/generic/generic.reset";
+@import "~inuitcss/generic/generic.shared";
 
-p {
-  margin-top: 15px;
-}
+// ELEMENTS
+//@import "~inuitcss/elements/elements.page";
+//@import "~inuitcss/elements/elements.headings";
+//@import "~inuitcss/elements/elements.images";
+//@import "~inuitcss/elements/elements.tables";
 
-.author {
-  font-style: italic;
-  color: #689aed;
-}
+// OBJECTS
+//
+// Uncomment and add to this section as necessary.
+//@import "~inuitcss/objects/objects.wrapper";
+//@import "~inuitcss/objects/objects.layout";
+//@import "~inuitcss/objects/objects.media";
+//@import "~inuitcss/objects/objects.flag";
+//@import "~inuitcss/objects/objects.list-bare";
+//@import "~inuitcss/objects/objects.list-inline";
+//@import "~inuitcss/objects/objects.box";
+//@import "~inuitcss/objects/objects.block";
+//@import "~inuitcss/objects/objects.ratio";
+//@import "~inuitcss/objects/objects.crop";
+//@import "~inuitcss/objects/objects.table";
+//@import "~inuitcss/objects/objects.pack";
 
-.image {
-  border-radius: 15px;
-  border: 2px solid #04225f;
-  box-shadow: 4px 4px 8px -2px rgba(0, 0, 0, 0.6);
-  background-size: cover;
-}
+// COMPONENTS
+//
+// Build and include your project’s UI components here.
+//@import "~inuitcss/components/example.components.buttons";
+
+// UTILITIES
+//@import "~inuitcss/utilities/utilities.clearfix";
+
+// Be aware that enabling offsets produces a large chunk of classes which might
+// bloat your CSS, depending of the amount of breakpoints you defined.
+// Only set this to `true` if you are absolutely sure about what you are doing.
+$inuit-offsets: true;
+//@import "~inuitcss/utilities/utilities.widths";
+//@import "~inuitcss/utilities/utilities.headings";
+//@import "~inuitcss/utilities/utilities.spacings";
+//@import "~inuitcss/utilities/utilities.responsive-spacings";
+//@import "~inuitcss/utilities/utilities.print";
+//@import "~inuitcss/utilities/utilities.hide";
