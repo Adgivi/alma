@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <h1 class="title">Paw Waves</h1>
+      <Logo />
       <section v-for="post in posts" :key="post.fields.slug">
         <div
           class="image"
@@ -23,7 +23,10 @@
 </template>
 
 <script>
+import Logo from "~/assets/CulCiclista.svg";
+
 export default {
+  components: { Logo },
   computed: {
     posts() {
       return this.$store.state.posts;

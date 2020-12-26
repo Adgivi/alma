@@ -10,6 +10,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "prettier -c '**/*.*(js|vue)' --write"
   },
   "husky": {
@@ -39,7 +40,9 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.3.6",
     "jest": "^26.5.0",
+    "jest-transform-stub": "^2.0.0",
     "prettier": "^1.19.1",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "vue-svg-loader": "^0.16.0"
   }
 }
