@@ -1,0 +1,13 @@
+@import "~inuitcss/elements/elements.page";
+
+html {
+  font-family: $f-font-family__primary;
+  @include inuit-font-size(24px);
+}
+
+.container {
+  max-width: $global-container-width;
+  margin: auto;
+  padding-left: $inuit-global-spacing-unit-large;
+  padding-right: $inuit-global-spacing-unit-large;
+}

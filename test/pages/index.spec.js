@@ -3,7 +3,6 @@ import "@testing-library/jest-dom";
 
 import posts from "../__mocks__/posts";
 import Index from "@/pages/index.vue";
-import Header from "@/components/Header";
 
 const renderPage = () =>
   render(Index, {
@@ -11,7 +10,8 @@ const renderPage = () =>
       state: { posts }
     },
     stubs: {
-      NuxtLink: true
+      NuxtLink: true,
+      Header: true
     }
   });
 
@@ -25,9 +25,15 @@ describe("Index page", () => {
     });
   });
 
-  it("renders header", async () => {
-    const { getByRole } = render(Header);
+  it.skip("renders header", () => {
+    const { getByRole } = renderPage();
 
     expect(getByRole("banner")).toBeVisible();
+  });
+
+  it("should greet", () => {
+    const { getByText } = renderPage();
+
+    expect(getByText(/Eh, hola!/gi)).toBeVisible();
   });
 });

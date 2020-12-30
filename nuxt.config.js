@@ -29,7 +29,8 @@ export default {
         rel: "stylesheet",
         href:
           "https://fonts.googleapis.com/css?family=Molle:400i|Baloo+Paaji+2:400,500&display=swap"
-      }
+      },
+      { rel: "stylesheet", href: "https://use.typekit.net/uet8luc.css" }
     ]
   },
   /*
