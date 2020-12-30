@@ -75,15 +75,16 @@
  */
 
 // SETTINGS
-@import "~inuitcss/settings/example.settings.config";
+//@import "~inuitcss/settings/example.settings.config";
 @import "~inuitcss/settings/settings.core";
-@import "~inuitcss/settings/example.settings.global";
+@import "./settings/settings.global";
+@import "./settings/settings.color-neutral";
 
 // TOOLS
 @import "~inuitcss/tools/tools.font-size";
 @import "~inuitcss/tools/tools.clearfix";
 @import "~inuitcss/tools/tools.hidden";
-@import "node_modules/sass-mq/mq";
+//@import "node_modules/sass-mq/mq";
 
 // GENERIC
 @import "~inuitcss/generic/generic.box-sizing";

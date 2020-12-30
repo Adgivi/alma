@@ -59,7 +59,7 @@ export default {
     CONTENTFUL_ACCESSTOKEN: process.env.CONTENTFUL_ACCESSTOKEN,
     CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT
   },
-  modules: ["@nuxtjs/markdownit"],
+  modules: ["@nuxtjs/markdownit", "@nuxtjs/style-resources"],
   markdownit: {
     injected: true
   },
@@ -85,5 +85,8 @@ export default {
         use: ["babel-loader", "vue-svg-loader"]
       });
     }
+  },
+  styleResources: {
+    scss: ["~/css/main.scss"]
   }
 };

@@ -3,6 +3,7 @@ import "@testing-library/jest-dom";
 
 import posts from "../__mocks__/posts";
 import Index from "@/pages/index.vue";
+import Header from "@/components/Header";
 
 const renderPage = () =>
   render(Index, {
@@ -22,5 +23,11 @@ describe("Index page", () => {
       expect(getByRole("heading", { name: title })).toBeVisible();
       expect(getByText(description)).toBeVisible();
     });
+  });
+
+  it("renders header", async () => {
+    const { getByRole } = render(Header);
+
+    expect(getByRole("banner")).toBeVisible();
   });
 });
