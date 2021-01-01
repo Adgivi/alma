@@ -4,8 +4,8 @@
     <div class="greetings__message">
       <p>Eh, hola!</p>
       <p>
-        Aquest és un blog on trobar aventures bicicleteres.<br />Espere et
-        vinguen ganes de fer-te amb un bon <strong>cul ciclista</strong>!
+        Aquest és un blog d'aventures bicicleteres.<br />Espere trobes les ganes
+        de fer-te amb un bon <strong>cul ciclista</strong>!
       </p>
       <span class="greetings__emojis">🍑🥰</span>
     </div>
