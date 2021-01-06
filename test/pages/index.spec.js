@@ -10,8 +10,7 @@ const renderPage = () =>
       state: { posts }
     },
     stubs: {
-      NuxtLink: true,
-      Header: true
+      NuxtLink: true
     }
   });
 
@@ -25,13 +24,13 @@ describe("Index page", () => {
     });
   });
 
-  it.skip("renders header", () => {
+  it("renders header", () => {
     const { getByRole } = renderPage();
 
     expect(getByRole("banner")).toBeVisible();
   });
 
-  it("should greet", () => {
+  it.skip("should greet", () => {
     const { getByText } = renderPage();
 
     expect(getByText(/Eh, hola!/gi)).toBeVisible();

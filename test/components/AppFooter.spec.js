@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 
 import AppFooter from "@/components/AppFooter.vue";
 
-describe("App Footer", () => {
+describe.skip("App Footer", () => {
   it("renders author", () => {
     const { getByText } = render(AppFooter);
     const author = "adgivi";
