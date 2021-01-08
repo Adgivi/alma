@@ -1,0 +1,8 @@
+a {
+  text-decoration: none;
+  color: $f-color__accent;
+  transition: color ease-in-out 300ms;
+  &:hover {
+    color: $f-color__accent--semi-dark;
+  }
+}

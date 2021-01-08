@@ -1,0 +1,49 @@
+/* -------------------------------------------------------------------------
+ * FONT SIZES
+ *
+ * Values should be expressed in PX.
+ * The values here are for sample proposes, consider add your owns
+ *
+ * If you need a relative unit based on that values, use the core functions
+ * on context usage.
+ *
+ */
+
+// Main font sizes
+
+$f-font-size--xs: 14px !default;
+$f-font-size--s: 21px !default;
+$f-font-size--m: 24px !default;
+$f-font-size--l: 36px !default;
+$f-font-size--xl: 52px !default;
+
+// Font sizes map
+
+$f-font-sizes: (
+  "xs": $f-font-size--xs,
+  "s": $f-font-size--s,
+  "m": $f-font-size--m,
+  "l": $f-font-size--l,
+  "xl": $f-font-size--xl,
+) !default;
+
+////////////////////////////////////////////////////////////////////////////////
+//                               W A R N I N G                                //
+//                  DO NOT MODIFY ANYTHING BEYOND THIS POINT                  //
+////////////////////////////////////////////////////////////////////////////////
+
+/* SAFE CHECKING
+ * Check that the chosen values are pixel numbers.
+ */
+
+@each $_font-size__name, $_font-size__value in $f-font-sizes {
+  @if (type-of($_font-size__value) == number) {
+    @if ($_font-size__name != "none") {
+      @if (unit($_font-size__value) != "px") {
+        @error "$f-font-sizes: `#{$_font-size__name}` needs to be a pixel value.";
+      }
+    }
+  } @else {
+    @error "$f-font-sizes: `#{$_font-size__name}` needs to be a number.";
+  }
+}

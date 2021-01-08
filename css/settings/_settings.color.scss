@@ -1,0 +1,61 @@
+/* -------------------------------------------------------------------------
+ * COLORS BRAND
+ *
+ * Define brand colors and its priorities
+ * The values here are for sample proposes, consider add your owns
+ *
+ */
+
+// Main brand colors
+$f-color__primary: #ffc644;
+$f-color__secondary: #63c29e !default;
+$f-color__accent: #63c29e !default;
+
+// Primary shades
+$f-color__primary--ultra-light: mix(#fff, $f-color__primary, 92%) !default;
+$f-color__primary--light: lighten($f-color__primary, 10%) !default;
+$f-color__primary--semi-light: lighten($f-color__primary, 5%) !default;
+
+$f-color__primary--semi-dark: darken($f-color__primary, 5%) !default;
+$f-color__primary--dark: darken($f-color__primary, 15%) !default;
+
+// Secondary shades
+
+$f-color__secondary--ultra-light: mix(#fff, $f-color__secondary, 93%) !default;
+$f-color__secondary--light: lighten($f-color__secondary, 10%) !default;
+$f-color__secondary--semi-light: lighten($f-color__secondary, 5%) !default;
+
+$f-color__secondary--semi-dark: darken($f-color__secondary, 5%) !default;
+$f-color__secondary--dark: darken($f-color__secondary, 15%) !default;
+
+// Accent shades
+
+$f-color__accent--ultra-light: mix(#fff, $f-color__accent, 93%) !default;
+$f-color__accent--light: lighten($f-color__accent, 10%) !default;
+$f-color__accent--semi-light: lighten($f-color__accent, 5%) !default;
+
+$f-color__accent--semi-dark: darken($f-color__accent, 5%) !default;
+$f-color__accent--dark: darken($f-color__accent, 15%) !default;
+
+// Brand color map
+
+$f-colors-brand: (
+  "primary": $f-color__primary,
+  "secondary": $f-color__secondary,
+  "accent": $f-color__accent,
+  "primary--ultra-light": $f-color__primary--ultra-light,
+  "primary--light": $f-color__primary--light,
+  "primary--semi-light": $f-color__primary--semi-light,
+  "primary--semi-dark": $f-color__primary--semi-dark,
+  "primary--dark": $f-color__primary--dark,
+  "secondary--ultra-light": $f-color__secondary--ultra-light,
+  "secondary--light": $f-color__secondary--light,
+  "secondary--semi-light": $f-color__secondary--semi-light,
+  "secondary--semi-dark": $f-color__secondary--semi-dark,
+  "secondary--dark": $f-color__secondary--dark,
+  "accent--ultra-light": $f-color__accent--ultra-light,
+  "accent--light": $f-color__accent--light,
+  "accent--semi-light": $f-color__accent--semi-light,
+  "accent--semi-dark": $f-color__accent--semi-dark,
+  "accent--dark": $f-color__accent--dark
+) !default;

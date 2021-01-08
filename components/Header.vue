@@ -19,18 +19,18 @@ export default {};
   top: 0;
   width: 100vw;
   height: $layout-header-height;
-  border-bottom: 2px solid #ed1e79; // TODO: move to settings.colors
+  //border-bottom: 2px solid #ed1e79; // TODO: move to settings.colors
   background-color: rgba(255, 255, 255, 0.95);
   z-index: $z-index-header;
 
   &__container {
-    @extend .container;
+    @include container;
     height: 100%;
   }
 }
 
 .logo {
-  $logo-scale: 0.85;
+  $logo-scale: 0.9;
   height: 100%;
   display: flex;
   align-items: flex-end;

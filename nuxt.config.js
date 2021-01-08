@@ -40,7 +40,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/css/main.scss"],
+  css: ["~/css/global.scss"],
   render: {
     bundleRenderer: {
       shouldPreload: (file, type) => {
@@ -88,6 +88,6 @@ export default {
     }
   },
   styleResources: {
-    scss: ["~/css/main.scss"]
+    scss: ["~/css/variables.scss"]
   }
 };

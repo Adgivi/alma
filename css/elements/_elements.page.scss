@@ -2,7 +2,8 @@
 
 html {
   font-family: $f-font-family__primary;
-  @include inuit-font-size(24px);
+  @include inuit-font-size($f-font-size--m);
+  color: $f-color__neutral-grey--ultra-dark;
 }
 
 .container {
