@@ -4,14 +4,14 @@
       class="post__hero"
       :style="{ backgroundImage: `url(${hero.src})` }"
     ></div>
-    <div class="post__description container">
+    <div class="post__description-container container">
       <h2 class="post__title">
         <nuxt-link :to="post.fields.slug">{{ post.fields.title }}</nuxt-link>
       </h2>
       <span class="post__info">{{ date }}</span>
-      <p>
+      <div class="post__description">
         {{ post.fields.description }}
-      </p>
+      </div>
     </div>
   </article>
 </template>
@@ -41,22 +41,45 @@ export default {
 .post {
   position: relative;
   height: 500px;
-  margin-bottom: 8px;
+  margin-bottom: 3px;
+  @media (orientation: portrait) {
+    height: auto;
+  }
   &__hero {
     z-index: $z-index-post-hero;
     height: 500px;
     background-size: cover;
     background-position: center;
+    @media (orientation: portrait) {
+      height: height-from-ratio(5, 4);
+    }
   }
-  &__description {
+  &__description-container {
     z-index: $z-index-post-description;
-    height: 225px;
+    height: 190px;
     background-color: $f-color__neutral-white;
     position: absolute;
     bottom: -30px;
     transform: translateX(-50%);
     left: 50%;
-    padding: 12px 60px 15px;
+    padding-top: 12px;
+    padding-bottom: 15px;
+    @media (orientation: portrait) {
+      height: auto;
+      position: static;
+      transform: translateX(0);
+      bottom: 0;
+    }
+    // Tablet
+    @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+      padding-top: 10px;
+      padding-bottom: 12px;
+    }
+    // mobile
+    @media screen and (max-width: $f-breakpoint--mobile-landscape) {
+      padding-top: 8px;
+      padding-bottom: 10px;
+    }
   }
   &__title {
     font-family: $f-font-family__secondary-condensed;
@@ -70,6 +93,16 @@ export default {
     font-style: italic;
     font-size: $f-font-size--s;
     margin-bottom: $inuit-global-spacing-unit-small;
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      font-size: $f-font-size--xs;
+    }
+  }
+  &__description {
+    max-height: 60px;
+    overflow: hidden;
+    @media (orientation: portrait) {
+      max-height: none;
+    }
   }
 }
 </style>

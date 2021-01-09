@@ -6,7 +6,8 @@
 // need to be made available to the entire codebase.
 
 // Standardise some UI treatments.
-$layout-header-height: 100px;
+$layout-header-height: 80px;
+$layout-header-height-mb: 80px;
 
 $global-container-width: 960px;
 $global-radius: 3px !default;
@@ -15,3 +16,7 @@ $global-transition: all 300ms ease-in-out !default;
 $z-index-header: 3;
 $z-index-post-description: 2;
 $z-index-post-hero: 2;
+
+@function height-from-ratio($x, $y) {
+  @return #{(100 / $x) * $y}vw;
+}

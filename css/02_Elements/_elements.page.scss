@@ -4,12 +4,12 @@ html {
   font-family: $f-font-family__primary;
   @include inuit-font-size($f-font-size--m);
   color: $f-color__neutral-grey--ultra-dark;
+
+  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+    @include inuit-font-size($f-font-size--xs);
+  }
 }
 
 .container {
-  width: $global-container-width;
-  max-width: 100%;
-  margin: auto;
-  padding-left: $inuit-global-spacing-unit-large;
-  padding-right: $inuit-global-spacing-unit-large;
+  @include container;
 }

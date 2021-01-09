@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container">
       <div class="logo">
-        <span class="logo__txt">Un cul ciclista</span>
+        <span class="logo__txt">Un Cul Ciclista</span>
         <span class="logo__icon">🍑</span>
       </div>
     </div>
@@ -19,9 +19,13 @@ export default {};
   top: 0;
   width: 100vw;
   height: $layout-header-height;
-  //border-bottom: 2px solid #ed1e79; // TODO: move to settings.colors
+  //border-bottom: 2px solid $f-color__neutral-grey--semi-dark; // TODO: move to settings.colors
   background-color: rgba(255, 255, 255, 0.95);
   z-index: $z-index-header;
+
+  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+    height: $layout-header-height-mb;
+  }
 
   &__container {
     @include container;
@@ -30,20 +34,30 @@ export default {};
 }
 
 .logo {
-  $logo-scale: 0.9;
+  $logo-scale: 0.85;
+  $logo-scale-mb: 0.75;
+
+  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+    font-size: $f-font-size--xs;
+  }
   height: 100%;
   display: flex;
   align-items: flex-end;
   padding-bottom: 10px;
   &__txt {
     font-family: liebeerika, sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-style: normal;
     font-size: 86px * $logo-scale;
     line-height: 86px * $logo-scale;
     height: 70px * $logo-scale;
     color: $f-color__neutral-grey--dark;
     display: block;
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      font-size: 86px * $logo-scale-mb;
+      line-height: 86px * $logo-scale-mb;
+      height: 70px * $logo-scale-mb;
+    }
   }
   &__icon {
     display: block;
@@ -51,6 +65,12 @@ export default {};
     line-height: 77px * $logo-scale;
     height: 60px * $logo-scale;
     margin-left: 14px * $logo-scale;
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      font-size: 60px * $logo-scale-mb;
+      line-height: 77px * $logo-scale-mb;
+      height: 60px * $logo-scale-mb;
+      margin-left: 14px * $logo-scale-mb;
+    }
   }
 }
 </style>

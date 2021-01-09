@@ -20,6 +20,7 @@
 // SETTINGS
 @import "~inuitcss/settings/settings.core";
 @import "00_Settings/settings.global";
+@import "00_Settings/settings.breakpoints";
 @import "00_Settings/settings.color";
 @import "00_Settings/settings.color-neutral";
 @import "00_Settings/settings.font-families";
@@ -38,4 +39,14 @@
   margin: auto;
   padding-left: $inuit-global-spacing-unit-large;
   padding-right: $inuit-global-spacing-unit-large;
+  // Tablet
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    padding-left: $inuit-global-spacing-unit;
+    padding-right: $inuit-global-spacing-unit;
+  }
+  // mobile
+  //@media screen and (max-width: $f-breakpoint--mobile-landscape) {
+  //  padding-left: $inuit-global-spacing-unit-small;
+  //  padding-right: $inuit-global-spacing-unit-small;
+  //}
 }

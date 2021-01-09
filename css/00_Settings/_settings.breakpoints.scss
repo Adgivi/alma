@@ -11,16 +11,22 @@
  */
 
 // Main breakpoints
-
 $f-breakpoint--xxs: 1px !default;
 $f-breakpoint--xs: 480px !default;
-$f-breakpoint--sm: 600px !default;
-$f-breakpoint--sml: 840px !default;
+$f-breakpoint--sm: 812px !default;
+$f-breakpoint--sml: 834px !default;
 $f-breakpoint--md: 960px !default;
-$f-breakpoint--lg: 1280px !default;
+$f-breakpoint--lg: 1112px !default;
 $f-breakpoint--xl: 1440px !default;
-$f-breakpoint--xxl: 1600px !default;
+$f-breakpoint--xxl: 1680px !default; // -- laptop
 $f-breakpoint--xxxl: 1920px !default;
+
+$f-breakpoint--mobile-portrait: $f-breakpoint--xs;
+$f-breakpoint--mobile-landscape: $f-breakpoint--sm;
+$f-breakpoint--tablet-portrait: $f-breakpoint--sml;
+$f-breakpoint--tablet-landscape: $f-breakpoint--lg;
+$f-breakpoint--laptop: $f-breakpoint--xl;
+$f-breakpoint--desktop: $f-breakpoint--xxl;
 
 // Breakpoints map
 

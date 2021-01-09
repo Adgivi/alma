@@ -26,5 +26,8 @@ export default {
 <style lang="scss">
 main {
   padding-top: $layout-header-height;
+  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+    padding-top: $layout-header-height-mb;
+  }
 }
 </style>
