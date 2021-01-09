@@ -70,11 +70,11 @@
 @import "~inuitcss/generic/generic.box-sizing";
 @import "~inuitcss/generic/generic.normalize";
 @import "~inuitcss/generic/generic.reset";
-@import "./generic/generic.shared";
+@import "01_Generic/generic.shared";
 
 // ELEMENTS
-@import "./elements/elements.page";
-@import "./elements/elements.anchor";
+@import "02_Elements/elements.page";
+@import "02_Elements/elements.anchor";
 //@import "~inuitcss/elements/elements.headings";
 //@import "~inuitcss/elements/elements.images";
 //@import "~inuitcss/elements/elements.tables";
