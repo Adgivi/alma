@@ -1,8 +1,8 @@
 {
   "name": "alma",
   "version": "1.0.0",
-  "description": "La vida en bicicleta",
-  "author": "sdras",
+  "description": "Un Cul Ciclista",
+  "author": "gimevid",
   "private": true,
   "scripts": {
     "dev": "nuxt",

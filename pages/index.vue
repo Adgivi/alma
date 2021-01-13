@@ -1,25 +1,20 @@
 <template>
-  <main>
-    <Header />
-    <!--    <Greetings />-->
-    <Post v-for="post in posts" :post="post" :key="post.fields.slug" />
-  </main>
+  <section>
+    <Entry v-for="post in posts" :post="post" :key="post.fields.slug" />
+  </section>
 </template>
 
 <script>
 import Header from "@/components/Header";
 import Greetings from "@/components/Greetings";
-import Post from "@/components/Post";
+import Entry from "@/components/Entry";
 
 export default {
-  components: { Header, Greetings, Post },
+  components: { Header, Greetings, Entry },
   computed: {
     posts() {
       return this.$store.state.posts;
     }
-  },
-  head: {
-    title: "Paw Waves, Latest Posts"
   }
 };
 </script>

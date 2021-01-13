@@ -4,6 +4,12 @@ export const state = () => ({
   posts: null
 });
 
+export const getters = {
+  getPostBySlug: state => slug => {
+    return state.posts.find(el => el.fields.slug === slug);
+  }
+};
+
 export const mutations = {
   updatePosts: (state, posts) => {
     state.posts = posts;

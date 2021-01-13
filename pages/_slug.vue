@@ -1,20 +1,21 @@
 <template>
-  <section class="container">
-    <p class="back">
-      <nuxt-link exact to="/">⟵ Back to Home</nuxt-link>
-    </p>
-    <h1>{{ post.fields.title }}</h1>
+  <section class="post">
     <div
       class="image"
       :style="
         `background: url(https:${post.fields.heroImage.fields.file.url}) center center no-repeat`
       "
     ></div>
-    <article v-html="$md.render(post.fields.body)"></article>
+    <h1>{{ post.fields.title }}</h1>
+    <span>{{ date }}</span>
+    <article class="container" v-html="$md.render(post.fields.body)"></article>
+    <div class="container" v-html="post.fields.iframe"></div>
   </section>
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   data() {
     return {
@@ -23,15 +24,43 @@ export default {
   },
   computed: {
     post() {
-      let post = this.$store.state.posts.filter(
-        el => el.fields.slug === this.slug
-      );
-      return post[0];
+      return this.$store.getters.getPostBySlug(this.slug);
+    },
+    date() {
+      // TODO: duplicated
+      return moment(this.post.fields.publishDate).format("D [de] MMMM YYYY");
     }
   },
   head() {
     return {
-      title: this.post.fields.title
+      title: this.post.fields.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.fields.description
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.post.fields.description
+        },
+        {
+          hid: "og:type",
+          property: "og:type",
+          content: "article"
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.post.fields.title
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.post.fields.heroImage.fields.file.url
+        }
+      ]
     };
   }
 };

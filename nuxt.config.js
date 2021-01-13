@@ -13,13 +13,34 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: process.env.npm_package_description || "",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      // { name: "robots", content: "all" }, TODO deploy: uncomment
       {
         hid: "description",
-        name: "description",
+        property: "description",
+        content: "Cycling adventures blog"
+      },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: "Cycling adventures blog"
+      },
+      // TODO deploy: fill the url & uncomment
+      // {
+      //   name: "og:url",
+      //   content: "..."
+      // },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "website"
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
         content: process.env.npm_package_description || ""
       }
     ],
