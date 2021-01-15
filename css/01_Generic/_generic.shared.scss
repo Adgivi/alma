@@ -17,5 +17,8 @@ figure,
 hr,
 table,
 fieldset {
-  margin-bottom: $inuit-global-spacing-unit-small;
+  margin-bottom: $inuit-global-spacing-unit;
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    margin-bottom: $inuit-global-spacing-unit-small;
+  }
 }

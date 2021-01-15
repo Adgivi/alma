@@ -8,7 +8,7 @@
       <h2 class="entry__title">
         <nuxt-link :to="post.fields.slug">{{ post.fields.title }}</nuxt-link>
       </h2>
-      <span class="entry__info">{{ date }}</span>
+      <span class="h-subtitle entry__info">{{ date }}</span>
       <div class="entry__description">
         {{ post.fields.description }}
       </div>
@@ -41,7 +41,7 @@ export default {
 .entry {
   position: relative;
   height: 500px;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   @media (orientation: portrait) {
     height: auto;
   }
@@ -82,17 +82,10 @@ export default {
     }
   }
   &__title {
-    font-family: $f-font-family__secondary-condensed;
-    font-weight: 500;
-    font-style: normal;
     margin-bottom: $inuit-global-spacing-unit-small;
   }
   &__info {
-    display: block;
-    color: $f-color__neutral-grey;
-    font-style: italic;
-    font-size: $f-font-size--s;
-    margin-bottom: $inuit-global-spacing-unit-small;
+    margin-bottom: $inuit-global-spacing-unit-tiny;
     @media screen and (max-width: $f-breakpoint--mobile-portrait) {
       font-size: $f-font-size--xs;
     }

@@ -1,0 +1,55 @@
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+$inuit-font-size-h1: 60px !default;
+$inuit-font-size-h2: 36px !default;
+$inuit-font-size-h3: 30px !default;
+
+$inuit-font-size-h1-sm: 50px !default;
+$inuit-font-size-h2-sm: 30px !default;
+$inuit-font-size-h3-sm: 24px !default;
+
+@mixin heading {
+  font-family: $f-font-family__secondary-condensed;
+  font-weight: 500;
+  font-style: normal;
+}
+
+h1 {
+  font-size: $inuit-font-size-h1;
+  @include heading();
+  font-weight: 700;
+  line-height: #{$inuit-font-size-h1 + 5px};
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    font-size: $inuit-font-size-h1-sm;
+    line-height: #{$inuit-font-size-h1-sm + 5px};
+  }
+}
+
+h2 {
+  font-size: $inuit-font-size-h2;
+  @include heading();
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    font-size: $inuit-font-size-h2-sm;
+  }
+}
+
+h3 {
+  font-size: $inuit-font-size-h3;
+  @include heading();
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    font-size: $inuit-font-size-h3-sm;
+  }
+}
+
+.h-subtitle {
+  display: block;
+  color: $f-color__neutral-grey;
+  font-style: italic;
+  font-size: $f-font-size--s;
+  margin-bottom: $inuit-global-spacing-unit-small;
+  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+    font-size: $f-font-size--xs;
+  }
+}

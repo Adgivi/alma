@@ -1,10 +1,12 @@
 <template>
   <header class="header">
     <div class="header__container">
-      <div class="logo">
-        <span class="logo__txt">Un Cul Ciclista</span>
-        <span class="logo__icon">🍑</span>
-      </div>
+      <nuxt-link to="/">
+        <div class="logo">
+          <span class="logo__txt">Un Cul Ciclista</span>
+          <span class="logo__icon">🍑</span>
+        </div>
+      </nuxt-link>
     </div>
   </header>
 </template>
