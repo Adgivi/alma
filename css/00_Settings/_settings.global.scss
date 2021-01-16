@@ -7,11 +7,13 @@
 
 // Standardise some UI treatments.
 $layout-header-height: 80px;
-$layout-header-height-mb: 80px;
+$layout-header-height-mb: 69px;
 
 $global-container-width: 960px;
 $global-radius: 3px !default;
 $global-transition: all 300ms ease-in-out !default;
+$global-font-size: $f-font-size--m;
+$global-font-size-sm: $f-font-size--s;
 
 $z-index-header: 3;
 $z-index-post-description: 2;

@@ -37,7 +37,7 @@ export default {};
 
 .logo {
   $logo-scale: 0.85;
-  $logo-scale-mb: 0.75;
+  $logo-scale-mb: 0.7;
 
   @media screen and (max-width: $f-breakpoint--mobile-portrait) {
     font-size: $f-font-size--xs;

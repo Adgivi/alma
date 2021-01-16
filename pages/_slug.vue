@@ -8,7 +8,7 @@
     ></div>
     <article class="post__body-wrapper container">
       <h1 class="post__title">{{ post.fields.title }}</h1>
-      <span class="h-subtitle">{{ date }}</span>
+      <span class="post__subtitle h-subtitle">{{ date }}</span>
       <div class="post__body" v-html="$md.render(post.fields.bodyIntro)"></div>
       <div class="post__track"><span v-html="post.fields.iframe"></span></div>
       <div class="post__body" v-html="$md.render(post.fields.body)"></div>
@@ -77,12 +77,24 @@ export default {
     height: 400px;
     background-position: center;
     background-size: cover;
+    @media (orientation: portrait) {
+      height: height-from-ratio(5, 3);
+    }
   }
   &__title {
     text-align: center;
     padding: $inuit-global-spacing-unit $inuit-global-spacing-unit-large;
+    margin-bottom: 0;
     @media screen and (max-width: $f-breakpoint--tablet-portrait) {
       padding: $inuit-global-spacing-unit 0;
+    }
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      padding: $inuit-global-spacing-unit-small 0;
+    }
+  }
+  &__subtitle {
+    @media (orientation: portrait) {
+      text-align: center;
     }
   }
   &__body {
@@ -93,6 +105,11 @@ export default {
       max-width: 100vw;
       width: auto;
       max-height: 700px;
+      display: block;
+    }
+    h2,
+    h3 {
+      padding-top: $inuit-global-spacing-unit-small;
     }
   }
   &__track {

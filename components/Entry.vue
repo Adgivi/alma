@@ -42,6 +42,7 @@ export default {
   position: relative;
   height: 500px;
   margin-bottom: 5px;
+  line-height: 1.3;
   @media (orientation: portrait) {
     height: auto;
   }
@@ -51,7 +52,7 @@ export default {
     background-size: cover;
     background-position: center;
     @media (orientation: portrait) {
-      height: height-from-ratio(5, 4);
+      height: height-from-ratio(5, 3);
     }
   }
   &__description-container {
@@ -76,10 +77,10 @@ export default {
       padding-bottom: 12px;
     }
     // mobile
-    @media screen and (max-width: $f-breakpoint--mobile-landscape) {
-      padding-top: 8px;
-      padding-bottom: 10px;
-    }
+    //@media screen and (max-width: $f-breakpoint--mobile-landscape) {
+    //  padding-top: 8px;
+    //  padding-bottom: 10px;
+    //}
   }
   &__title {
     margin-bottom: $inuit-global-spacing-unit-small;

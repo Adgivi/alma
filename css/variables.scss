@@ -20,12 +20,12 @@
 // SETTINGS
 $inuit-global-baseline: 8px;
 @import "~inuitcss/settings/settings.core";
+@import "00_Settings/settings.font-sizes";
 @import "00_Settings/settings.global";
 @import "00_Settings/settings.breakpoints";
 @import "00_Settings/settings.color";
 @import "00_Settings/settings.color-neutral";
 @import "00_Settings/settings.font-families";
-@import "00_Settings/settings.font-sizes";
 
 // TOOLS
 @import "~inuitcss/tools/tools.font-size";
@@ -46,8 +46,8 @@ $inuit-global-baseline: 8px;
     padding-right: $inuit-global-spacing-unit;
   }
   // mobile
-  //@media screen and (max-width: $f-breakpoint--mobile-landscape) {
-  //  padding-left: $inuit-global-spacing-unit-small;
-  //  padding-right: $inuit-global-spacing-unit-small;
-  //}
+  @media screen and (max-width: $f-breakpoint--mobile-landscape) {
+    padding-left: $inuit-global-spacing-unit-small;
+    padding-right: $inuit-global-spacing-unit-small;
+  }
 }

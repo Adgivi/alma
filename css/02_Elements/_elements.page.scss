@@ -1,12 +1,11 @@
-@import "~inuitcss/elements/elements.page";
-
 html {
   font-family: $f-font-family__primary;
-  @include inuit-font-size($f-font-size--m);
-  color: $f-color__neutral-grey--ultra-dark;
+  font-size: $global-font-size;
+  line-height: 1.5;
+  color: $f-color__neutral-grey--dark;
 
   @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-    @include inuit-font-size($f-font-size--xs);
+    font-size: $global-font-size-sm;
   }
 }
 
