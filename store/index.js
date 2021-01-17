@@ -21,9 +21,13 @@ export const actions = {
     try {
       if (!client) return;
       const response = await client.getEntries({
-        content_type: "blogPost"
+        content_type: "blogPost",
+        locale: this.$i18n.locale
       });
+      // TODO: Loader
+      // setTimeout(() => {
       if (response.items.length > 0) commit("updatePosts", response.items);
+      // }, 5000);
     } catch (err) {
       console.error(err);
     }

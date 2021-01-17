@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import moment from "moment";
+import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
 
 export default {
   data() {
@@ -30,8 +30,9 @@ export default {
       return this.$store.getters.getPostBySlug(this.slug);
     },
     date() {
-      // TODO: duplicated
-      return moment(this.post.fields.publishDate).format("D [de] MMMM YYYY");
+      return this.$dayjs(this.post.fields.publishDate).format(
+        POST_LOCALIZED_FORMAT
+      );
     }
   },
   head() {

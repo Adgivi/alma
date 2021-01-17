@@ -1,18 +1,32 @@
 <template>
   <header class="header">
     <div class="header__container">
-      <nuxt-link to="/">
+      <nuxt-link :to="localePath('index')">
         <div class="logo">
           <span class="logo__txt">Un Cul Ciclista</span>
           <span class="logo__icon">🍑</span>
         </div>
       </nuxt-link>
+      <!--      <nuxt-link-->
+      <!--        v-for="locale in availableLocales"-->
+      <!--        :key="locale.code"-->
+      <!--        :to="switchLocalePath(locale.code)"-->
+      <!--        class="header__language"-->
+      <!--      >-->
+      <!--        {{ locale.name }}-->
+      <!--      </nuxt-link>-->
     </div>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  // computed: {
+  //   availableLocales() {
+  //     return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+  //   }
+  // }
+};
 </script>
 
 <style lang="scss">

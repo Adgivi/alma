@@ -1,0 +1,3 @@
+const POST_LOCALIZED_FORMAT = "LL";
+
+export { POST_LOCALIZED_FORMAT };

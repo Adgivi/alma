@@ -11,6 +11,10 @@ const renderPage = () =>
     },
     stubs: {
       NuxtLink: true
+    },
+    mocks: {
+      $dayjs: jest.fn(() => ({ format: jest.fn() })),
+      localePath: jest.fn()
     }
   });
 

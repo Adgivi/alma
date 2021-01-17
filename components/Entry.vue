@@ -6,7 +6,11 @@
     ></div>
     <div class="entry__description-container container">
       <h2 class="entry__title">
-        <nuxt-link :to="post.fields.slug">{{ post.fields.title }}</nuxt-link>
+        <nuxt-link
+          :to="localePath({ name: 'slug', params: { slug: post.fields.slug } })"
+        >
+          {{ post.fields.title }}
+        </nuxt-link>
       </h2>
       <span class="h-subtitle entry__info">{{ date }}</span>
       <div class="entry__description">
@@ -16,7 +20,7 @@
   </article>
 </template>
 <script>
-import moment from "moment";
+import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
 
 export default {
   props: {
@@ -31,7 +35,9 @@ export default {
       };
     },
     date() {
-      return moment(this.post.fields.publishDate).format("D [de] MMMM YYYY");
+      return this.$dayjs(this.post.fields.publishDate).format(
+        POST_LOCALIZED_FORMAT
+      );
     }
   }
 };

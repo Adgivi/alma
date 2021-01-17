@@ -72,7 +72,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/contentful", "~/plugins/posts"],
+  plugins: [
+    "~/plugins/contentful",
+    "~/plugins/posts",
+    { src: "~/plugins/i18n.js" },
+    { src: "~/plugins/dayjs.js" }
+  ],
   /*
    ** Environment variables
    */
@@ -81,7 +86,26 @@ export default {
     CONTENTFUL_ACCESSTOKEN: process.env.CONTENTFUL_ACCESSTOKEN,
     CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT
   },
-  modules: ["@nuxtjs/markdownit", "@nuxtjs/style-resources"],
+  modules: [
+    "@nuxtjs/markdownit",
+    "@nuxtjs/style-resources",
+    [
+      "nuxt-i18n",
+      {
+        locales: [
+          { code: "ca", name: "Valencià" },
+          { code: "es", name: "Castellano" }
+        ],
+        defaultLocale: "ca",
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: "i18n_redirected",
+          onlyOnRoot: true
+        }
+      }
+    ],
+    "@nuxtjs/dayjs"
+  ],
   markdownit: {
     injected: true
   },
