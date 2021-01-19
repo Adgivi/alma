@@ -2,7 +2,9 @@
   <article class="entry">
     <div
       class="entry__hero"
-      :style="{ backgroundImage: `url(${hero.src})` }"
+      :style="{
+        backgroundImage: `url(https://${hero.src}?w=${imgWidthToRequest})`
+      }"
     ></div>
     <div class="entry__description-container container">
       <h2 class="entry__title">
@@ -21,11 +23,14 @@
 </template>
 <script>
 import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
+import imgToRequestMixin from "@/shared/imgToRequestMixin";
 
 export default {
+  mixins: [imgToRequestMixin],
   props: {
     post: Object
   },
+
   computed: {
     hero() {
       const img = this.post.fields.heroImage.fields;

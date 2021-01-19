@@ -3,7 +3,7 @@
     <div
       class="post__hero"
       :style="{
-        backgroundImage: `url(${post.fields.heroImage.fields.file.url})`
+        backgroundImage: `url(https://${post.fields.heroImage.fields.file.url}?w=${imgWidthToRequest})`
       }"
     ></div>
     <article class="post__body-wrapper container">
@@ -18,8 +18,10 @@
 
 <script>
 import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
+import imgToRequestMixin from "@/shared/imgToRequestMixin";
 
 export default {
+  mixins: [imgToRequestMixin],
   data() {
     return {
       slug: this.$route.params.slug
@@ -94,9 +96,7 @@ export default {
     }
   }
   &__subtitle {
-    @media (orientation: portrait) {
-      text-align: center;
-    }
+    text-align: center;
   }
   &__body {
     img {
