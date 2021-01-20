@@ -29,7 +29,8 @@
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.18.0",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "uid": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

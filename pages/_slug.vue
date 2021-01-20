@@ -1,5 +1,15 @@
 <template>
   <section class="post">
+    <Overlay
+      :show="!!selectedImg"
+      @click-overlay="shrinkImage"
+      @click-close="shrinkImage"
+    >
+      <div
+        v-html="this.selectedImg && this.selectedImg.outerHTML"
+        v-on:click="onClickSelectedImg"
+      />
+    </Overlay>
     <div
       class="post__hero"
       :style="{
@@ -11,20 +21,67 @@
       <span class="post__subtitle h-subtitle">{{ date }}</span>
       <div class="post__body" v-html="$md.render(post.fields.bodyIntro)"></div>
       <div class="post__track"><span v-html="post.fields.iframe"></span></div>
-      <div class="post__body" v-html="$md.render(post.fields.body)"></div>
+      <div
+        class="post__body"
+        v-html="$md.render(post.fields.body)"
+        ref="body"
+      ></div>
     </article>
   </section>
 </template>
 
 <script>
+import { uid } from "uid";
+
+import Overlay from "@/components/Overlay";
 import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
 import imgToRequestMixin from "@/shared/imgToRequestMixin";
 
 export default {
+  components: { Overlay },
   mixins: [imgToRequestMixin],
+  mounted() {
+    this.processBodyImages();
+  },
+  methods: {
+    getBodyImages() {
+      return this.$refs.body.getElementsByTagName("img");
+    },
+    onClickBodyImage(e) {
+      e.stopPropagation();
+      this.selectedImg = e.target.cloneNode();
+      this.selectedImg.classList.add("image-selected");
+    },
+    shrinkImage() {
+      this.selectedImg = null;
+    },
+    onClickSelectedImg: e => e.stopPropagation(),
+    processBodyImages() {
+      const bodyImages = this.getBodyImages();
+      const processImg = img => {
+        const id = uid();
+        img.setAttribute("id", id);
+        img.addEventListener("click", this.onClickBodyImage);
+        this.images.push(img);
+      };
+      const processParent = node => {
+        const parent = node.parentNode;
+        parent.setAttribute(
+          "style",
+          `height: ${parent.scrollHeight}px; display: block;`
+        );
+      };
+      for (const img of bodyImages) {
+        // processParent(img);
+        processImg(img);
+      }
+    }
+  },
   data() {
     return {
-      slug: this.$route.params.slug
+      slug: this.$route.params.slug,
+      images: [],
+      selectedImg: null
     };
   },
   computed: {
@@ -107,6 +164,9 @@ export default {
       width: auto;
       max-height: 700px;
       display: block;
+      &:hover {
+        cursor: pointer;
+      }
     }
     h2,
     h3 {
@@ -124,5 +184,14 @@ export default {
       max-width: 100vw;
     }
   }
+}
+.image-selected {
+  position: fixed;
+  max-width: 100vw;
+  max-height: 100vh;
+  z-index: $z-index-in-overlay;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 </style>
