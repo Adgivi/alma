@@ -54,11 +54,11 @@ export default {
 
   &:hover {
     cursor: pointer;
-    border-color: $f-color__accent;
+    border-color: $f-color__accent--dark-mode;
 
     &:after,
     &:before {
-      background-color: $f-color__accent;
+      background-color: $f-color__accent--dark-mode;
     }
   }
 }
