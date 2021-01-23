@@ -7,10 +7,9 @@
  */
 
 // Main brand colors
-$f-color__primary: #ffc644;
+$f-color__primary: #63c29e;
 $f-color__secondary: #63c29e !default;
-$f-color__accent: #63c29e !default;
-$f-color__accent--dark-mode: #ffc644 !default;
+$f-color__accent: #ffc644 !default;
 
 // Primary shades
 $f-color__primary--ultra-light: mix(#fff, $f-color__primary, 92%) !default;

@@ -132,7 +132,7 @@ export default {
 <style lang="scss">
 .post {
   overflow-x: hidden;
-  padding-bottom: $inuit-global-spacing-unit-large;
+  padding-bottom: $inuit-global-spacing-unit-small;
   &__hero {
     height: 400px;
     background-position: center;

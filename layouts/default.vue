@@ -2,6 +2,7 @@
   <main>
     <Header />
     <nuxt />
+    <Footer />
   </main>
 </template>
 
@@ -12,11 +13,12 @@ import ca from "dayjs/locale/ca";
 const langs = { es, ca };
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 // TODO deploy: pick the right one
 import ogImage from "@/assets/avatar.jpg";
 
 export default {
-  components: { Header },
+  components: { Header, Footer },
   beforeCreate() {
     this.$dayjs.locale(langs[this.$i18n.locale]);
   },
@@ -34,3 +36,11 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+main {
+  padding-top: $layout-header-height;
+  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+    padding-top: $layout-header-height-mb;
+  }
+}
+</style>

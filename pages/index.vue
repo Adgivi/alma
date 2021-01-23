@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="index-page">
     <Entry v-for="post in posts" :post="post" :key="post.fields.slug" />
   </section>
 </template>
@@ -19,10 +19,11 @@ export default {
 };
 </script>
 <style lang="scss">
-main {
-  padding-top: $layout-header-height;
-  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-    padding-top: $layout-header-height-mb;
+.index-page {
+  background-color: $f-color__neutral-grey--ultra-dark;
+  padding-bottom: $layout-entry-bottom-offset;
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    padding-bottom: 0;
   }
 }
 </style>

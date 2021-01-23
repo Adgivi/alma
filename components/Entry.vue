@@ -52,17 +52,23 @@ export default {
 .entry {
   position: relative;
   height: 500px;
-  margin-bottom: 5px;
   line-height: 1.3;
-  @media (orientation: portrait) {
+  & + & {
+    margin-top: 5px;
+  }
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    margin-top: 0;
     height: auto;
+    & + & {
+      margin-top: 0;
+    }
   }
   &__hero {
     z-index: $z-index-post-hero;
     height: 500px;
     background-size: cover;
     background-position: center;
-    @media (orientation: portrait) {
+    @media screen and (max-width: $f-breakpoint--tablet-portrait) {
       height: height-from-ratio(5, 3);
     }
   }
@@ -71,27 +77,19 @@ export default {
     height: 190px;
     background-color: $f-color__neutral-white;
     position: absolute;
-    bottom: -30px;
+    bottom: -$layout-entry-bottom-offset;
     transform: translateX(-50%);
     left: 50%;
     padding-top: 12px;
     padding-bottom: 15px;
-    @media (orientation: portrait) {
+    @media screen and (max-width: $f-breakpoint--tablet-portrait) {
       height: auto;
       position: static;
       transform: translateX(0);
       bottom: 0;
-    }
-    // Tablet
-    @media screen and (max-width: $f-breakpoint--tablet-portrait) {
       padding-top: 10px;
       padding-bottom: 12px;
     }
-    // mobile
-    //@media screen and (max-width: $f-breakpoint--mobile-landscape) {
-    //  padding-top: 8px;
-    //  padding-bottom: 10px;
-    //}
   }
   &__title {
     margin-bottom: $inuit-global-spacing-unit-small;
@@ -105,7 +103,7 @@ export default {
   &__description {
     max-height: 60px;
     overflow: hidden;
-    @media (orientation: portrait) {
+    @media screen and (max-width: $f-breakpoint--tablet-portrait) {
       max-height: none;
     }
   }

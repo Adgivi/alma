@@ -104,7 +104,19 @@ export default {
         }
       }
     ],
-    "@nuxtjs/dayjs"
+    "@nuxtjs/dayjs",
+    [
+      "@nuxtjs/fontawesome",
+      {
+        icons: {
+          solid: ["faHome"],
+          // regular: [ ... ],
+          // light: [ ... ],
+          // duotone: [ ... ],
+          brands: ["faInstagram"]
+        }
+      }
+    ]
   ],
   markdownit: {
     injected: true
