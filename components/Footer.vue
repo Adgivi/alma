@@ -67,11 +67,14 @@ export default {
   color: $f-color__neutral-white;
   &__container {
     @include container();
+    font-family: $f-font-family__secondary;
+    font-size: $f-font-size--xs;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: $layout-footer-height;
     @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      //font-size: $f-font-size--s;
       height: auto;
       flex-wrap: wrap;
       padding-top: $inuit-global-spacing-unit-tiny;
@@ -83,6 +86,9 @@ export default {
   &__lang {
     @media screen and (max-width: $f-breakpoint--mobile-portrait) {
       flex: 100%;
+      &:last-child {
+        padding: $inuit-global-spacing-unit-small 0;
+      }
     }
   }
 }
@@ -100,13 +106,20 @@ export default {
     padding-right: $spacing;
     & + & {
       padding-left: $spacing;
+      @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+        padding-left: $inuit-global-spacing-unit-small;
+      }
     }
     &--icon {
       font-size: $f-font-size--m;
+      @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+        font-size: $f-font-size--l;
+      }
     }
     &--email {
       @media screen and (max-width: $f-breakpoint--mobile-portrait) {
         flex: 100%;
+        padding: $inuit-global-spacing-unit-tiny 0;
         & + .social__item {
           padding-left: 0;
         }
