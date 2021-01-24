@@ -1,7 +1,8 @@
 import client from "~/plugins/contentful";
 
 export const state = () => ({
-  posts: null
+  posts: null,
+  isFetching: false
 });
 
 export const getters = {
@@ -13,23 +14,24 @@ export const getters = {
 export const mutations = {
   updatePosts: (state, posts) => {
     state.posts = posts;
-  }
+  },
+  setFetching: (state, value) => (state.isFetching = value)
 };
 
 export const actions = {
   async getPosts({ commit }) {
+    commit("setFetching", true);
     try {
       if (!client) return;
       const response = await client.getEntries({
         content_type: "blogPost",
         locale: this.$i18n.locale
       });
-      // TODO: Loader
-      // setTimeout(() => {
       if (response.items.length > 0) commit("updatePosts", response.items);
-      // }, 5000);
+      commit("setFetching", false);
     } catch (err) {
       console.error(err);
+      commit("setFetching", false);
     }
   }
 };

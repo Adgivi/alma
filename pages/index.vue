@@ -1,5 +1,5 @@
 <template>
-  <section class="index-page">
+  <section class="index-page" v-show="!isFetching">
     <Entry v-for="post in posts" :post="post" :key="post.fields.slug" />
   </section>
 </template>
@@ -8,10 +8,14 @@
 import Header from "@/components/Header";
 import Greetings from "@/components/Greetings";
 import Entry from "@/components/Entry";
+import Loader from "@/components/Loader";
 
 export default {
-  components: { Header, Greetings, Entry },
+  components: { Header, Greetings, Entry, Loader },
   computed: {
+    isFetching() {
+      return this.$store.state.isFetching;
+    },
     posts() {
       return this.$store.state.posts;
     }

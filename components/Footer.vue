@@ -74,21 +74,13 @@ export default {
     align-items: center;
     height: $layout-footer-height;
     @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-      //font-size: $f-font-size--s;
-      height: auto;
-      flex-wrap: wrap;
-      padding-top: $inuit-global-spacing-unit-tiny;
-      padding-bottom: $inuit-global-spacing-unit-tiny;
+      height: $layout-footer-height-mb;
+      overflow-y: hidden;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: $inuit-global-spacing-unit-small;
+      padding-bottom: $inuit-global-spacing-unit;
       text-align: center;
-    }
-  }
-  &__social,
-  &__lang {
-    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-      flex: 100%;
-      &:last-child {
-        padding: $inuit-global-spacing-unit-small 0;
-      }
     }
   }
 }
@@ -101,14 +93,12 @@ export default {
     flex-wrap: wrap;
   }
   $spacing: $inuit-global-spacing-unit-tiny;
+  $spacing-mb: $inuit-global-spacing-unit-small;
   &__item {
     display: block;
     padding-right: $spacing;
     & + & {
       padding-left: $spacing;
-      @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-        padding-left: $inuit-global-spacing-unit-small;
-      }
     }
     &--icon {
       font-size: $f-font-size--m;
@@ -119,10 +109,6 @@ export default {
     &--email {
       @media screen and (max-width: $f-breakpoint--mobile-portrait) {
         flex: 100%;
-        padding: $inuit-global-spacing-unit-tiny 0;
-        & + .social__item {
-          padding-left: 0;
-        }
       }
     }
   }

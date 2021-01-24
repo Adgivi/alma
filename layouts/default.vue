@@ -1,7 +1,10 @@
 <template>
   <main>
     <Header />
-    <nuxt />
+    <div class="content">
+      <nuxt />
+      <Loader v-if="isFetching" />
+    </div>
     <Footer />
   </main>
 </template>
@@ -14,13 +17,19 @@ const langs = { es, ca };
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Loader from "@/components/Loader";
 // TODO deploy: pick the right one
 import ogImage from "@/assets/avatar.jpg";
 
 export default {
-  components: { Header, Footer },
+  components: { Header, Footer, Loader },
   beforeCreate() {
     this.$dayjs.locale(langs[this.$i18n.locale]);
+  },
+  computed: {
+    isFetching() {
+      return this.$store.state.isFetching;
+    }
   },
   head() {
     return {
@@ -39,6 +48,17 @@ export default {
 <style lang="scss">
 main {
   padding-top: $layout-header-height;
+  .content {
+    position: relative;
+    min-height: calc(
+      100vh - #{$layout-header-height} - #{$layout-footer-height}
+    );
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      min-height: calc(
+        100vh - #{$layout-header-height-mb} - #{$layout-footer-height-mb}
+      );
+    }
+  }
   @media screen and (max-width: $f-breakpoint--mobile-portrait) {
     padding-top: $layout-header-height-mb;
   }
