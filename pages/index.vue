@@ -22,7 +22,7 @@ export default {
 .index-page {
   background-color: $f-color__neutral-grey--ultra-dark;
   padding-bottom: $layout-entry-bottom-offset;
-  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+  @media screen and (max-width: $global-container-width) {
     padding-bottom: 0;
   }
 }

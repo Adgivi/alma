@@ -93,8 +93,8 @@ export default {
       "nuxt-i18n",
       {
         locales: [
-          { code: "ca", name: "Valencià" },
-          { code: "es", name: "Castellano" }
+          { code: "ca", name: "Valencià", label: "En valencià" },
+          { code: "es", name: "Castellano", label: "En castellano" }
         ],
         defaultLocale: "ca",
         detectBrowserLanguage: {

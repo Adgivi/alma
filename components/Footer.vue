@@ -23,6 +23,16 @@
           />
         </a>
       </div>
+      <div class="footer__lang">
+        <nuxt-link
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          :to="switchLocalePath(locale.code)"
+          class="footer__lang-option anchor-dark"
+        >
+          {{ locale.label }}
+        </nuxt-link>
+      </div>
     </div>
   </footer>
 </template>
@@ -36,6 +46,11 @@ export default {
       EMAIL,
       networks: SOCIAL_NETWORKS(this.$i18n.locale)
     };
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    }
   },
   methods: {
     socialItemClass: network => `social__item social__item--${network.name}
@@ -53,13 +68,32 @@ export default {
   &__container {
     @include container();
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: $layout-footer-height;
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      height: auto;
+      flex-wrap: wrap;
+      padding-top: $inuit-global-spacing-unit-tiny;
+      padding-bottom: $inuit-global-spacing-unit-tiny;
+      text-align: center;
+    }
+  }
+  &__social,
+  &__lang {
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      flex: 100%;
+    }
   }
 }
 .social {
   display: flex;
   align-items: center;
+  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
   $spacing: $inuit-global-spacing-unit-tiny;
   &__item {
     display: block;
@@ -69,6 +103,14 @@ export default {
     }
     &--icon {
       font-size: $f-font-size--m;
+    }
+    &--email {
+      @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+        flex: 100%;
+        & + .social__item {
+          padding-left: 0;
+        }
+      }
     }
   }
 }

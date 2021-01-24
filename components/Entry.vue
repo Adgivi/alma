@@ -6,7 +6,7 @@
         backgroundImage: `url(https://${hero.src}?w=${imgWidthToRequest})`
       }"
     ></div>
-    <div class="entry__description-container container">
+    <div class="entry__description-container container-narrow">
       <h2 class="entry__title">
         <nuxt-link
           :to="localePath({ name: 'slug', params: { slug: post.fields.slug } })"
@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
+$layout-breakpoint: $global-container-width;
 .entry {
   position: relative;
   height: 500px;
@@ -56,7 +57,7 @@ export default {
   & + & {
     margin-top: 5px;
   }
-  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+  @media screen and (max-width: $layout-breakpoint) {
     margin-top: 0;
     height: auto;
     & + & {
@@ -68,6 +69,9 @@ export default {
     height: 500px;
     background-size: cover;
     background-position: center;
+    @media screen and (max-width: $layout-breakpoint) {
+      height: height-from-ratio(5, 2);
+    }
     @media screen and (max-width: $f-breakpoint--tablet-portrait) {
       height: height-from-ratio(5, 3);
     }
@@ -82,7 +86,7 @@ export default {
     left: 50%;
     padding-top: 12px;
     padding-bottom: 15px;
-    @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    @media screen and (max-width: $layout-breakpoint) {
       height: auto;
       position: static;
       transform: translateX(0);
@@ -93,6 +97,9 @@ export default {
   }
   &__title {
     margin-bottom: $inuit-global-spacing-unit-small;
+    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
+      margin-bottom: $inuit-global-spacing-unit-tiny;
+    }
   }
   &__info {
     margin-bottom: $inuit-global-spacing-unit-tiny;
@@ -103,7 +110,7 @@ export default {
   &__description {
     max-height: 60px;
     overflow: hidden;
-    @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    @media screen and (max-width: $layout-breakpoint) {
       max-height: none;
     }
   }

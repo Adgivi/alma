@@ -16,7 +16,7 @@
         backgroundImage: `url(https://${post.fields.heroImage.fields.file.url}?w=${imgWidthToRequest})`
       }"
     ></div>
-    <article class="post__body-wrapper container">
+    <article class="post__body-wrapper container-narrow">
       <h1 class="post__title">{{ post.fields.title }}</h1>
       <span class="post__subtitle h-subtitle">{{ date }}</span>
       <div class="post__body" v-html="$md.render(post.fields.bodyIntro)"></div>

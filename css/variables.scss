@@ -34,18 +34,26 @@ $inuit-global-baseline: 8px;
 //@import "node_modules/sass-mq/mq";
 
 // MIXINS
-@mixin container {
+@mixin container($narrow-desktop: false) {
   width: $global-container-width;
   max-width: 100%;
   margin: auto;
-  padding-left: $inuit-global-spacing-unit-large;
-  padding-right: $inuit-global-spacing-unit-large;
+
+  $padding: $inuit-global-spacing-unit-large;
+  @if $narrow-desktop {
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+  @media screen and (max-width: $f-breakpoint--tablet-landscape) {
+    padding-left: $padding;
+    padding-right: $padding;
+  }
   // Tablet
   @media screen and (max-width: $f-breakpoint--tablet-portrait) {
     padding-left: $inuit-global-spacing-unit;
     padding-right: $inuit-global-spacing-unit;
   }
-  // mobile
+  // Mobile
   @media screen and (max-width: $f-breakpoint--mobile-landscape) {
     padding-left: $inuit-global-spacing-unit-small;
     padding-right: $inuit-global-spacing-unit-small;

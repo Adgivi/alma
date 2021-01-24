@@ -12,3 +12,6 @@ html {
 .container {
   @include container;
 }
+.container-narrow {
+  @include container($narrow-desktop: true);
+}
