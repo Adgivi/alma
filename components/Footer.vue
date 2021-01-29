@@ -66,7 +66,7 @@ export default {
   background-color: $f-color__neutral-grey--ultra-dark;
   color: $f-color__neutral-white;
   &__container {
-    @include container();
+    @include container($narrow-desktop: true);
     font-family: $f-font-family__secondary;
     font-size: $f-font-size--xs;
     display: flex;
