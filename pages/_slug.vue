@@ -133,6 +133,7 @@ export default {
 
 <style lang="scss">
 .post {
+  position: relative;
   overflow-x: hidden;
   padding-bottom: $inuit-global-spacing-unit;
   @media screen and (max-width: $f-breakpoint--tablet-portrait) {
@@ -163,12 +164,18 @@ export default {
   }
   &__body {
     img {
+      $max-height: 700px;
       position: relative;
       transform: translateX(-50%);
       left: 50%;
       max-width: 100vw;
       width: auto;
-      max-height: 700px;
+      max-height: $max-height;
+      @media screen and (max-height: #{$max-height + $layout-header-height}) {
+        max-height: calc(
+          100vh - #{$layout-header-height +$inuit-global-spacing-unit-large}
+        );
+      }
       display: block;
       &:hover {
         cursor: pointer;

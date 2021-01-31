@@ -12,6 +12,7 @@
     >
       <font-awesome-icon :icon="['fab', network.icon]" />
     </ShareNetwork>
+    <div class="shadow"></div>
   </div>
 </template>
 <script>
@@ -23,7 +24,7 @@ export default {
     this.initialOffset = this.containerRef.offsetTop;
     this.setStickState();
     this.onScroll();
-    this.onResize();
+    // this.onResize();
   },
   computed: {
     containerRef: function() {
@@ -36,7 +37,9 @@ export default {
   methods: {
     // TODO: Extract to plugin
     isDesktop: () => {
-      return screen.width >= BREAKPOINTS.TABLET_PORTRAIT;
+      return (
+        document.documentElement.scrollWidth >= BREAKPOINTS.TABLET_PORTRAIT
+      );
     },
     stick() {
       this.containerRef.classList.add(this.stickClass);
@@ -50,11 +53,11 @@ export default {
     },
     setBottomStickState() {
       const [footer] = document.body.getElementsByClassName("footer");
-      const pageYBottomOffset = window.pageYOffset + screen.height;
+      const pageYBottomOffset = window.pageYOffset + window.innerHeight;
       const scrollOverFooterOffset = pageYBottomOffset - footer.offsetTop;
 
-      this.containerRef.style.bottom =
-        scrollOverFooterOffset >= 0 ? `${scrollOverFooterOffset}px` : 0;
+      this.containerRef.style.position =
+        scrollOverFooterOffset >= 0 ? "absolute" : "fixed";
     },
     fadeIn() {
       this.containerRef.classList.add("in");
@@ -72,20 +75,20 @@ export default {
         "scroll",
         this.isDesktop() ? this.setTopStickState : this.setBottomStickState
       );
-    },
-    onResize() {
-      window.onresize = () => {
-        if (this.isDesktop()) {
-          window.removeEventListener("scroll", this.setBottomStickState);
-          this.setTopStickState();
-          window.addEventListener("scroll", this.setTopStickState);
-        } else {
-          window.removeEventListener("scroll", this.setTopStickState);
-          this.setBottomStickState();
-          window.addEventListener("scroll", this.setBottomStickState);
-        }
-      };
     }
+    // onResize() {
+    //   window.onresize = () => {
+    //     if (this.isDesktop()) {
+    //       window.removeEventListener("scroll", this.setBottomStickState);
+    //       this.setTopStickState();
+    //       window.addEventListener("scroll", this.setTopStickState);
+    //     } else {
+    //       window.removeEventListener("scroll", this.setTopStickState);
+    //       // this.setBottomStickState();
+    //       window.addEventListener("scroll", this.setBottomStickState);
+    //     }
+    //   };
+    // }
   }
 };
 </script>
