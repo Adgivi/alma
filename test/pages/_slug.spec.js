@@ -3,11 +3,13 @@ import "@testing-library/jest-dom";
 
 import { post as postMock } from "../__mocks__";
 import PostPage from "@/pages/_slug.vue";
+import Social from "@/components/Sharing";
 
 const renderPage = () =>
   render(PostPage, {
     stubs: {
-      NuxtLink: true
+      NuxtLink: true,
+      Social: true // TODO
     },
     mocks: {
       $dayjs: jest.fn(() => ({ format: jest.fn() })),

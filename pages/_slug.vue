@@ -16,9 +16,10 @@
         backgroundImage: `url(https://${post.fields.heroImage.fields.file.url}?w=${imgWidthToRequest})`
       }"
     ></div>
-    <article class="post__body-wrapper container-narrow">
+    <article class="container-narrow">
       <h1 class="post__title">{{ post.fields.title }}</h1>
       <span class="post__subtitle h-subtitle">{{ date }}</span>
+      <Social />
       <div class="post__body" v-html="$md.render(post.fields.bodyIntro)"></div>
       <div class="post__track"><span v-html="post.fields.iframe"></span></div>
       <div
@@ -33,12 +34,13 @@
 <script>
 import { uid } from "uid";
 
+import Social from "@/components/Sharing";
 import Overlay from "@/components/Overlay";
 import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
 import imgToRequestMixin from "@/shared/imgToRequestMixin";
 
 export default {
-  components: { Overlay },
+  components: { Overlay, Social },
   mixins: [imgToRequestMixin],
   mounted() {
     this.processBodyImages();
@@ -132,7 +134,11 @@ export default {
 <style lang="scss">
 .post {
   overflow-x: hidden;
-  padding-bottom: $inuit-global-spacing-unit-small;
+  padding-bottom: $inuit-global-spacing-unit;
+  @media screen and (max-width: $f-breakpoint--tablet-portrait) {
+    padding-bottom: #{$inuit-global-spacing-unit-tiny + $layout-sharing-size};
+  }
+
   &__hero {
     height: 400px;
     background-position: center;
@@ -171,6 +177,9 @@ export default {
     h2,
     h3 {
       padding-top: $inuit-global-spacing-unit-small;
+    }
+    p:last-child {
+      margin-bottom: 0;
     }
   }
   &__track {

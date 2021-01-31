@@ -38,13 +38,13 @@
 </template>
 
 <script>
-import { EMAIL, SOCIAL_NETWORKS } from "@/shared/constants";
+import { EMAIL, SOCIAL_NETWORKS_BRAND } from "@/shared/constants";
 
 export default {
   data() {
     return {
       EMAIL,
-      networks: SOCIAL_NETWORKS(this.$i18n.locale)
+      networks: SOCIAL_NETWORKS_BRAND(this.$i18n.locale)
     };
   },
   computed: {

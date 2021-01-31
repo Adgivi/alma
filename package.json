@@ -30,7 +30,8 @@
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.18.0",
     "sass-loader": "^8.0.2",
-    "uid": "^2.0.0"
+    "uid": "^2.0.0",
+    "vue-social-sharing": "^3.0.4"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.2",

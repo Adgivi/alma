@@ -113,10 +113,11 @@ export default {
           // regular: [ ... ],
           // light: [ ... ],
           // duotone: [ ... ],
-          brands: ["faInstagram"]
+          brands: ["faInstagram", "faFacebookF", "faWhatsapp"]
         }
       }
-    ]
+    ],
+    "vue-social-sharing/nuxt"
   ],
   markdownit: {
     injected: true
