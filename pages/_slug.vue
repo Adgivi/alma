@@ -19,7 +19,7 @@
     <article class="container-narrow">
       <h1 class="post__title">{{ post.fields.title }}</h1>
       <span class="post__subtitle h-subtitle">{{ date }}</span>
-      <Social />
+      <Social :in="mobileSharingIn" />
       <div class="post__body" v-html="$md.render(post.fields.bodyIntro)"></div>
       <div class="post__track"><span v-html="post.fields.iframe"></span></div>
       <div
@@ -38,12 +38,14 @@ import Social from "@/components/Sharing";
 import Overlay from "@/components/Overlay";
 import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
 import imgToRequestMixin from "@/shared/imgToRequestMixin";
+import documentSizeMixin from "@/shared/documentSizeMixin";
 
 export default {
   components: { Overlay, Social },
-  mixins: [imgToRequestMixin],
+  mixins: [imgToRequestMixin, documentSizeMixin],
   mounted() {
     this.processBodyImages();
+    this.onScroll();
   },
   methods: {
     getBodyImages() {
@@ -77,13 +79,21 @@ export default {
         // processParent(img);
         processImg(img);
       }
+    },
+    onScroll() {
+      window.addEventListener("scroll", () => {
+        const SHOW_SHARING_PERCENT = 35;
+        this.mobileSharingIn =
+          this.getScrollPercentage() > SHOW_SHARING_PERCENT;
+      });
     }
   },
   data() {
     return {
       slug: this.$route.params.slug,
       images: [],
-      selectedImg: null
+      selectedImg: null,
+      mobileSharingIn: false
     };
   },
   computed: {

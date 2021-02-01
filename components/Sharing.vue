@@ -19,7 +19,7 @@
 import { BREAKPOINTS, SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
 
 export default {
-  props: ["url", "title", "description", "hashtags"],
+  props: ["url", "title", "description", "hashtags", "in"],
   mounted() {
     this.initialOffset = this.containerRef.offsetTop;
     this.setStickState();
@@ -33,6 +33,11 @@ export default {
   },
   data() {
     return { networks: SOCIAL_NETWORKS_SHARING, stickClass: "sharing--stick" };
+  },
+  watch: {
+    in() {
+      this.toggleFade();
+    }
   },
   methods: {
     // TODO: Extract to plugin
@@ -59,16 +64,22 @@ export default {
       this.containerRef.style.position =
         scrollOverFooterOffset >= 0 ? "absolute" : "fixed";
     },
+    toggleFade() {
+      this.in ? this.fadeIn() : this.fadeOut();
+    },
+    fadeOut() {
+      this.containerRef.classList.remove("in");
+    },
     fadeIn() {
       this.containerRef.classList.add("in");
     },
     setStickState() {
       if (this.isDesktop()) {
         this.setTopStickState();
+        this.fadeIn();
       } else {
         this.setBottomStickState();
       }
-      this.fadeIn();
     },
     onScroll() {
       window.addEventListener(
