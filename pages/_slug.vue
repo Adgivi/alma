@@ -181,6 +181,7 @@ export default {
       max-width: 100vw;
       width: auto;
       max-height: $max-height;
+      z-index: $z-index-post-img;
       @media screen and (max-height: #{$max-height + $layout-header-height}) {
         max-height: calc(
           100vh - #{$layout-header-height +$inuit-global-spacing-unit-large}

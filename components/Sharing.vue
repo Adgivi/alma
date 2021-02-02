@@ -8,9 +8,21 @@
       :description="'description'"
       :hashtags="'hashtags'"
       class="sharing__network"
-      :style="{ backgroundColor: network.color }"
     >
-      <font-awesome-icon :icon="['fab', network.icon]" />
+      <span
+        class="sharing__net-placeholder"
+        :style="networkStyles(network)"
+        @mouseenter="() => onMoseEnterNet(network)"
+        @mouseleave="onMoseLeaveNet"
+      >
+        <font-awesome-icon
+          class="sharing__net-icon"
+          :icon="[
+            network.icon.type || 'fab',
+            network.icon.name || network.icon
+          ]"
+        />
+      </span>
     </ShareNetwork>
     <div class="shadow"></div>
   </div>
@@ -27,16 +39,20 @@ export default {
     // this.onResize();
   },
   computed: {
-    containerRef: function() {
+    containerRef() {
       return this.$refs.container;
     }
   },
   data() {
-    return { networks: SOCIAL_NETWORKS_SHARING, stickClass: "sharing--stick" };
+    return {
+      networks: SOCIAL_NETWORKS_SHARING,
+      stickClass: "sharing--stick",
+      selectedNetwork: null
+    };
   },
   watch: {
     in() {
-      this.toggleFade();
+      !this.isDesktop() && this.toggleFade();
     }
   },
   methods: {
@@ -45,6 +61,20 @@ export default {
       return (
         document.documentElement.scrollWidth >= BREAKPOINTS.TABLET_PORTRAIT
       );
+    },
+    networkStyles(network) {
+      return {
+        backgroundColor:
+          this.selectedNetwork && this.selectedNetwork.name === network.name
+            ? network.color
+            : "transparent"
+      };
+    },
+    onMoseEnterNet(network) {
+      this.selectedNetwork = network;
+    },
+    onMoseLeaveNet() {
+      this.selectedNetwork = null;
     },
     stick() {
       this.containerRef.classList.add(this.stickClass);
@@ -106,9 +136,11 @@ export default {
 
 <style lang="scss">
 .sharing {
+  $self: &;
   $layout-breakpoint-sharing: $f-breakpoint--tablet-portrait;
   $size: $layout-sharing-size;
-  padding-top: $inuit-global-spacing-unit-tiny;
+  $size-mb: $layout-sharing-size-mb;
+  //padding-top: $inuit-global-spacing-unit-tiny;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -116,7 +148,8 @@ export default {
   left: calc(#{$margin} - #{$size});
   z-index: $z-index-sharing;
   opacity: 0;
-  transition: opacity 200ms ease-in-out;
+  background-color: rgba(255, 255, 255, 0.85);
+  @include transition-fast(opacity);
 
   &.in {
     opacity: 1;
@@ -133,6 +166,7 @@ export default {
   @media screen and (max-width: $layout-breakpoint-sharing) {
     position: fixed;
     flex-direction: row;
+    z-index: $z-index-sharing-mb;
     &,
     &--stick {
       top: auto;
@@ -141,15 +175,38 @@ export default {
   }
 
   &__network {
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     height: $size;
     width: $size;
-    color: white;
+    color: $f-color__neutral-grey--dark;
+    position: relative;
+
     &:hover {
       color: white;
     }
+    @media screen and (max-width: $layout-breakpoint-sharing) {
+      font-size: 1.1rem;
+      height: $size-mb;
+      width: $size-mb;
+    }
+  }
+
+  &__net-placeholder {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include transition-fast($property: background-color);
+  }
+  &__net-icon {
+    z-index: 2;
   }
 }
 </style>

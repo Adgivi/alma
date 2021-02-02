@@ -13,16 +13,22 @@
 import es from "dayjs/locale/es";
 import ca from "dayjs/locale/ca";
 
-const langs = { es, ca };
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 // TODO deploy: pick the right one
 import ogImage from "@/assets/avatar.jpg";
+import { SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
+
+const langs = { es, ca };
 
 export default {
   components: { Header, Footer, Loader },
+  mounted() {
+    SOCIAL_NETWORKS_SHARING.forEach(({ name, color }) =>
+      document.documentElement.style.setProperty(`--${name}`, color)
+    );
+  },
   beforeCreate() {
     this.$dayjs.locale(langs[this.$i18n.locale]);
   },

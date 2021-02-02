@@ -23,59 +23,29 @@ const WHATSAPP = {
   icon: "whatsapp",
   color: "#25d366"
 };
+const TELEGRAM = {
+  name: "telegram",
+  icon: "telegram",
+  color: "#0088cc"
+};
+const TWITTER = {
+  name: "twitter",
+  icon: "twitter",
+  color: "#1da1f2"
+};
+const EMAIL_SHARING = {
+  name: "email",
+  icon: { type: "fas", name: "envelope" },
+  color: "#333333"
+};
 
 const SOCIAL_NETWORKS_BRAND = locale => [WIKILOC(locale), INSTAGRAM];
-const SOCIAL_NETWORKS_SHARING = [WHATSAPP, FACEBOOK];
-
-const SHARING_NETWORKS = [
-  {
-    network: "email",
-    name: "Email",
-    icon: "far fah fa-lg fa-envelope",
-    color: "#333333"
-  },
-  {
-    network: "facebook",
-    name: "Facebook",
-    icon: "fab fah fa-lg fa-facebook-f",
-    color: "#1877f2"
-  },
-  {
-    network: "linkedin",
-    name: "LinkedIn",
-    icon: "fab fah fa-lg fa-linkedin",
-    color: "#007bb5"
-  },
-  {
-    network: "reddit",
-    name: "Reddit",
-    icon: "fab fah fa-lg fa-reddit-alien",
-    color: "#ff4500"
-  },
-  {
-    network: "telegram",
-    name: "Telegram",
-    icon: "fab fah fa-lg fa-telegram-plane",
-    color: "#0088cc"
-  },
-  {
-    network: "twitter",
-    name: "Twitter",
-    icon: "fab fah fa-lg fa-twitter",
-    color: "#1da1f2"
-  },
-  {
-    network: "whatsapp",
-    name: "Whatsapp",
-    icon: "fab fah fa-lg fa-whatsapp",
-    color: "#25d366"
-  },
-  {
-    network: "yammer",
-    name: "Yammer",
-    icon: "fab fah fa-lg fa-yammer",
-    color: "#0072c6"
-  }
+const SOCIAL_NETWORKS_SHARING = [
+  WHATSAPP,
+  FACEBOOK,
+  TELEGRAM,
+  TWITTER,
+  EMAIL_SHARING
 ];
 
 const BREAKPOINTS = {

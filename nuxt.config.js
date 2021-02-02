@@ -109,11 +109,17 @@ export default {
       "@nuxtjs/fontawesome",
       {
         icons: {
-          solid: ["faHome"],
-          // regular: [ ... ],
-          // light: [ ... ],
+          solid: ["faHome", "faEnvelope"],
+          regular: ["faEnvelope"],
+          // light: [],
           // duotone: [ ... ],
-          brands: ["faInstagram", "faFacebookF", "faWhatsapp"]
+          brands: [
+            "faInstagram",
+            "faFacebookF",
+            "faWhatsapp",
+            "faTelegram",
+            "faTwitter"
+          ]
         }
       }
     ],
