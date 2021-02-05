@@ -3,10 +3,10 @@
     <ShareNetwork
       v-for="network in networks"
       :network="network.name"
-      :url="'url'"
-      :title="'title'"
-      :description="'description'"
-      :hashtags="'hashtags'"
+      :url="url"
+      :title="title"
+      :description="description"
+      :hashtags="hashtags"
       class="sharing__network"
     >
       <span
@@ -29,8 +29,10 @@
 </template>
 <script>
 import { BREAKPOINTS, SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
+import documentSizeMixin from "~/shared/documentSizeMixin";
 
 export default {
+  mixins: [documentSizeMixin],
   props: ["url", "title", "description", "hashtags", "in"],
   mounted() {
     this.initialOffset = this.containerRef.offsetTop;
@@ -78,6 +80,10 @@ export default {
     },
     stick() {
       this.containerRef.classList.add(this.stickClass);
+      const TRANSITION_TO_BOTTOM_PERCENT = 85;
+      if (this.getScrollPercentage() >= TRANSITION_TO_BOTTOM_PERCENT) {
+        this.containerRef.style.top = `calc(100vh - ${this.containerRef.offsetHeight}px)`;
+      }
     },
     unstick() {
       this.containerRef.classList.remove(this.stickClass);
@@ -148,7 +154,7 @@ export default {
   left: calc(#{$margin} - #{$size});
   z-index: $z-index-sharing;
   opacity: 0;
-  background-color: rgba(255, 255, 255, 0.85);
+  padding-bottom: #{$layout-footer-height + $inuit-global-spacing-unit};
   @include transition-fast(opacity);
 
   &.in {
@@ -158,6 +164,7 @@ export default {
   &--stick {
     position: fixed;
     top: $layout-header-height;
+    transition: top 700ms ease-out;
   }
 
   @media screen and (max-width: #{$global-container-width + $size * 2}) {
@@ -167,6 +174,11 @@ export default {
     position: fixed;
     flex-direction: row;
     z-index: $z-index-sharing-mb;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding-bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
     &,
     &--stick {
       top: auto;

@@ -18,7 +18,7 @@ import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 // TODO deploy: pick the right one
 import ogImage from "@/assets/avatar.jpg";
-import { SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
+import { BASE_URL_PROD, SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
 
 const langs = { es, ca };
 
@@ -44,7 +44,7 @@ export default {
           hid: "og:image",
           property: "og:image",
           // TODO deploy: change
-          content: "https://lavidaenbicicleta.netlify.app" + ogImage
+          content: BASE_URL_PROD + ogImage
         }
       ]
     };

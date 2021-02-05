@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import { BASE_URL_PROD } from "./shared/constants";
 dotenv.config();
 
 const contentful = require("contentful");
@@ -29,10 +30,10 @@ export default {
         content: "Cycling adventures blog"
       },
       // TODO deploy: fill the url & uncomment
-      // {
-      //   name: "og:url",
-      //   content: "..."
-      // },
+      {
+        name: "og:url",
+        content: BASE_URL_PROD
+      },
       {
         hid: "og:type",
         property: "og:type",

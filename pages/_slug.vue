@@ -19,7 +19,13 @@
     <article class="container-narrow">
       <h1 class="post__title">{{ post.fields.title }}</h1>
       <span class="post__subtitle h-subtitle">{{ date }}</span>
-      <Social :in="mobileSharingIn" />
+      <Social
+        :in="mobileSharingIn"
+        :url="route"
+        :title="post.fields.title"
+        :description="post.fields.description"
+        :hashtags="post.fields.hashtags"
+      />
       <div class="post__body" v-html="$md.render(post.fields.bodyIntro)"></div>
       <div class="post__track"><span v-html="post.fields.iframe"></span></div>
       <div
@@ -36,7 +42,7 @@ import { uid } from "uid";
 
 import Social from "@/components/Sharing";
 import Overlay from "@/components/Overlay";
-import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
+import { BASE_URL_PROD, POST_LOCALIZED_FORMAT } from "@/shared/constants";
 import imgToRequestMixin from "@/shared/imgToRequestMixin";
 import documentSizeMixin from "@/shared/documentSizeMixin";
 
@@ -48,6 +54,9 @@ export default {
     this.onScroll();
   },
   methods: {
+    url() {
+      return window.location.href;
+    },
     getBodyImages() {
       return this.$refs.body.getElementsByTagName("img");
     },
@@ -82,7 +91,7 @@ export default {
     },
     onScroll() {
       window.addEventListener("scroll", () => {
-        const SHOW_SHARING_PERCENT = 35;
+        const SHOW_SHARING_PERCENT = 85;
         this.mobileSharingIn =
           this.getScrollPercentage() > SHOW_SHARING_PERCENT;
       });
@@ -93,7 +102,8 @@ export default {
       slug: this.$route.params.slug,
       images: [],
       selectedImg: null,
-      mobileSharingIn: false
+      mobileSharingIn: false,
+      route: BASE_URL_PROD + this.$route.fullPath
     };
   },
   computed: {
