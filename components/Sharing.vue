@@ -200,7 +200,7 @@ export default {
       color: white;
     }
     @media screen and (max-width: $layout-breakpoint-sharing) {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       height: $size-mb;
       width: $size-mb;
     }

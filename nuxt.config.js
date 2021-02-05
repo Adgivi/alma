@@ -26,12 +26,13 @@ export default {
       },
       {
         hid: "og:description",
-        name: "og:description",
+        property: "og:description",
         content: "Cycling adventures blog"
       },
       // TODO deploy: fill the url & uncomment
       {
-        name: "og:url",
+        hid: "og:url",
+        property: "og:url",
         content: BASE_URL_PROD
       },
       {

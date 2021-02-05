@@ -13,7 +13,7 @@
     <div
       class="post__hero"
       :style="{
-        backgroundImage: `url(https://${post.fields.heroImage.fields.file.url}?w=${imgWidthToRequest})`
+        backgroundImage: `url(https:${post.fields.heroImage.fields.file.url}?w=${imgWidthToRequest})`
       }"
     ></div>
     <article class="container-narrow">
@@ -122,12 +122,12 @@ export default {
       meta: [
         {
           hid: "description",
-          name: "description",
+          property: "description",
           content: this.post.fields.description
         },
         {
           hid: "og:description",
-          name: "og:description",
+          property: "og:description",
           content: this.post.fields.description
         },
         {
@@ -143,7 +143,12 @@ export default {
         {
           hid: "og:image",
           property: "og:image",
-          content: this.post.fields.heroImage.fields.file.url
+          content: `https:${this.post.fields.heroImage.fields.file.url}?w=700`
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: this.route
         }
       ]
     };

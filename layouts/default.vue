@@ -17,7 +17,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 // TODO deploy: pick the right one
-import ogImage from "@/assets/avatar.jpg";
+import ogImage from "@/assets/avatar-m.jpg";
 import { BASE_URL_PROD, SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
 
 const langs = { es, ca };

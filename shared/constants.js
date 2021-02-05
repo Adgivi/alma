@@ -1,7 +1,7 @@
 const POST_LOCALIZED_FORMAT = "LL";
 
 // DOMAIN
-const BASE_URL_PROD = "https://vidaenbicicleta.netlify.app";
+const BASE_URL_PROD = "https://www.unculciclista.com";
 
 // SOCIAL
 const EMAIL = "unculciclista@gmail.com";
