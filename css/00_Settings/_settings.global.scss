@@ -13,6 +13,9 @@ $layout-footer-height: 50px;
 $layout-footer-height-mb: 170px;
 $layout-sharing-size: 40px;
 $layout-sharing-size-mb: 44px;
+$layout-content-min-height: calc(
+  100vh - #{$layout-header-height} - #{$layout-footer-height}
+);
 
 $global-container-width: 960px;
 $global-radius: 3px !default;

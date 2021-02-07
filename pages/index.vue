@@ -26,6 +26,7 @@ export default {
 .index-page {
   background-color: $f-color__neutral-grey--ultra-dark;
   padding-bottom: $layout-entry-bottom-offset;
+  min-height: $layout-content-min-height;
   @media screen and (max-width: $global-container-width) {
     padding-bottom: 0;
   }

@@ -56,9 +56,7 @@ main {
   padding-top: $layout-header-height;
   .content {
     position: relative;
-    min-height: calc(
-      100vh - #{$layout-header-height} - #{$layout-footer-height}
-    );
+    min-height: $layout-content-min-height;
     @media screen and (max-width: $f-breakpoint--mobile-portrait) {
       min-height: calc(
         100vh - #{$layout-header-height-mb} - #{$layout-footer-height-mb}
