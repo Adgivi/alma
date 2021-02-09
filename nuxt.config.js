@@ -9,6 +9,7 @@ const client = contentful.createClient({
 });
 
 export default {
+  dev: process.env.NODE_ENV !== "production",
   mode: "universal",
   /*
    ** Headers of the page
@@ -125,8 +126,13 @@ export default {
         }
       }
     ],
-    "vue-social-sharing/nuxt"
+    "vue-social-sharing/nuxt",
+    "@nuxtjs/google-analytics"
   ],
+  googleAnalytics: {
+    id: "UA-189270284-2",
+    dev: process.env.NODE_ENV !== "production"
+  },
   markdownit: {
     injected: true
   },

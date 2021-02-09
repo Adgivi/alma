@@ -14,7 +14,8 @@ const renderPage = () =>
     },
     mocks: {
       $dayjs: jest.fn(() => ({ format: jest.fn() })),
-      localePath: jest.fn()
+      localePath: jest.fn(),
+      $ga: { page: jest.fn() }
     }
   });
 
