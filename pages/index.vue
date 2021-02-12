@@ -11,9 +11,6 @@ import Entry from "@/components/Entry";
 import Loader from "@/components/Loader";
 
 export default {
-  mounted() {
-    this.$ga.page(this.$router);
-  },
   components: { Header, Greetings, Entry, Loader },
   computed: {
     isFetching() {

@@ -16,9 +16,8 @@ import ca from "dayjs/locale/ca";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
-// TODO deploy: pick the right one
 import ogImage from "@/assets/avatar-m.jpg";
-import { BASE_URL_PROD, SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
+import { BASE_URL_PROD, SOCIAL_NETWORKS_SHARING } from "@/settings/constants";
 
 const langs = { es, ca };
 
@@ -43,7 +42,6 @@ export default {
         {
           hid: "og:image",
           property: "og:image",
-          // TODO deploy: change
           content: BASE_URL_PROD + ogImage
         }
       ]

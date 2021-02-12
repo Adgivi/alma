@@ -6,6 +6,7 @@
           target="_blank"
           :href="`mailto:${EMAIL}`"
           class="social__item social__item--email anchor-dark"
+          @click="() => onClickNetwork('email')"
         >
           {{ EMAIL }}
         </a>
@@ -14,6 +15,7 @@
           target="_blank"
           :href="network.url"
           :class="socialItemClass(network)"
+          @click="() => onClickNetwork(network)"
         >
           <span v-if="network.label">{{ network.label }}</span>
           <font-awesome-icon
@@ -38,7 +40,8 @@
 </template>
 
 <script>
-import { EMAIL, SOCIAL_NETWORKS_BRAND } from "@/shared/constants";
+import { EMAIL, SOCIAL_NETWORKS_BRAND } from "@/settings/constants";
+import { ACTION, CATEGORY } from "@/settings/analytics";
 
 export default {
   data() {
@@ -53,6 +56,13 @@ export default {
     }
   },
   methods: {
+    onClickNetwork(network) {
+      this.$ga.event({
+        eventCategory: CATEGORY.SOCIAL,
+        eventAction: ACTION.CLICK,
+        eventLabel: network.name
+      });
+    },
     socialItemClass: network => `social__item social__item--${network.name}
           anchor-dark${!network.label ? " social__item--icon" : ""}`
   }

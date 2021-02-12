@@ -22,7 +22,7 @@
   </article>
 </template>
 <script>
-import { POST_LOCALIZED_FORMAT } from "@/shared/constants";
+import { POST_LOCALIZED_FORMAT } from "@/settings/constants";
 import imgToRequestMixin from "@/shared/imgToRequestMixin";
 
 export default {

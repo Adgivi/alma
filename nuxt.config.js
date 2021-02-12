@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { BASE_URL_PROD } from "./shared/constants";
+import { BASE_URL_PROD } from "./settings/constants";
 dotenv.config();
 
 const contentful = require("contentful");

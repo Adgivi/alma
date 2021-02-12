@@ -8,6 +8,7 @@
       :description="description"
       :hashtags="hashtags"
       class="sharing__network"
+      @click="() => onClickNetwork(network)"
     >
       <span
         class="sharing__net-placeholder"
@@ -28,8 +29,9 @@
   </div>
 </template>
 <script>
-import { BREAKPOINTS, SOCIAL_NETWORKS_SHARING } from "@/shared/constants";
+import { BREAKPOINTS, SOCIAL_NETWORKS_SHARING } from "@/settings/constants";
 import documentSizeMixin from "~/shared/documentSizeMixin";
+import { ACTION, CATEGORY } from "@/settings/analytics";
 
 export default {
   mixins: [documentSizeMixin],
@@ -63,6 +65,13 @@ export default {
       return (
         document.documentElement.scrollWidth >= BREAKPOINTS.TABLET_PORTRAIT
       );
+    },
+    onClickNetwork(network) {
+      this.$ga.event({
+        eventCategory: CATEGORY.SHARING,
+        eventAction: ACTION.CLICK,
+        eventLabel: network.name
+      });
     },
     networkStyles(network) {
       return {

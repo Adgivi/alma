@@ -42,7 +42,8 @@ import { uid } from "uid";
 
 import Social from "@/components/Sharing";
 import Overlay from "@/components/Overlay";
-import { BASE_URL_PROD, POST_LOCALIZED_FORMAT } from "@/shared/constants";
+import { BASE_URL_PROD, POST_LOCALIZED_FORMAT } from "@/settings/constants";
+import { ACTION, CATEGORY } from "@/settings/analytics";
 import imgToRequestMixin from "@/shared/imgToRequestMixin";
 import documentSizeMixin from "@/shared/documentSizeMixin";
 
@@ -62,6 +63,11 @@ export default {
     },
     onClickBodyImage(e) {
       e.stopPropagation();
+      this.$ga.event({
+        eventCategory: CATEGORY.BLOG_ENTRY_IMG,
+        eventAction: ACTION.CLICK,
+        eventLabel: e.target.alt
+      });
       this.selectedImg = e.target.cloneNode();
       this.selectedImg.classList.add("image-selected");
     },
@@ -91,10 +97,24 @@ export default {
     },
     onScroll() {
       window.addEventListener("scroll", () => {
-        const SHOW_SHARING_PERCENT = 85;
-        this.mobileSharingIn =
-          this.getScrollPercentage() > SHOW_SHARING_PERCENT;
+        const isOverBreakpoint =
+          this.getScrollPercentage() > this.SCROLL_BREAKPOINT;
+        this.mobileSharingIn = isOverBreakpoint;
+        if (isOverBreakpoint) {
+          this.breakPointScrolled = true;
+        }
       });
+    }
+  },
+  watch: {
+    breakPointScrolled() {
+      if (this.breakPointScrolled) {
+        this.$ga.event({
+          eventCategory: CATEGORY.BLOG_ENTRY,
+          eventAction: ACTION.SCROLL(this.SCROLL_BREAKPOINT),
+          eventLabel: this.slug
+        });
+      }
     }
   },
   data() {
@@ -103,7 +123,9 @@ export default {
       images: [],
       selectedImg: null,
       mobileSharingIn: false,
-      route: BASE_URL_PROD + this.$route.fullPath
+      route: BASE_URL_PROD + this.$route.fullPath,
+      breakPointScrolled: false,
+      SCROLL_BREAKPOINT: 85
     };
   },
   computed: {
