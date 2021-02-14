@@ -1,18 +1,19 @@
 <template>
   <header class="header">
     <div class="header__container">
-      <nuxt-link :to="localePath('index')">
-        <div class="logo">
-          <span class="logo__txt">Un Cul Ciclista</span>
-          <span class="logo__icon">🍑</span>
-        </div>
+      <nuxt-link :to="localePath('index')" class="header__logo-link">
+        <Logo class="header__logo" />
       </nuxt-link>
     </div>
   </header>
 </template>
 
 <script>
-export default {};
+import Logo from "@/assets/logo69.svg";
+
+export default {
+  components: { Logo }
+};
 </script>
 
 <style lang="scss">
@@ -33,46 +34,11 @@ export default {};
     @include container($narrow-desktop: true);
     height: 100%;
   }
-}
 
-.logo {
-  $logo-scale: 0.85;
-  $logo-scale-mb: 0.7;
-
-  @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-    font-size: $f-font-size--xs;
-  }
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 10px;
-  &__txt {
-    font-family: liebeerika, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 86px * $logo-scale;
-    line-height: 86px * $logo-scale;
-    height: 70px * $logo-scale;
-    color: $f-color__neutral-grey--dark;
-    display: block;
-    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-      font-size: 86px * $logo-scale-mb;
-      line-height: 86px * $logo-scale-mb;
-      height: 70px * $logo-scale-mb;
-    }
-  }
-  &__icon {
-    display: block;
-    font-size: 60px * $logo-scale;
-    line-height: 77px * $logo-scale;
-    height: 60px * $logo-scale;
-    margin-left: 14px * $logo-scale;
-    @media screen and (max-width: $f-breakpoint--mobile-portrait) {
-      font-size: 60px * $logo-scale-mb;
-      line-height: 77px * $logo-scale-mb;
-      height: 60px * $logo-scale-mb;
-      margin-left: 14px * $logo-scale-mb;
-    }
+  &__logo-link {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
   }
 }
 </style>
