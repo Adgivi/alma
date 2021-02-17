@@ -131,7 +131,17 @@ export default {
   ],
   googleAnalytics: {
     id: "UA-189270284-2",
-    dev: process.env.NODE_ENV !== "production"
+    dev: process.env.NODE_ENV !== "production",
+    autoTracking: {
+      pageviewTemplate(route) {
+        const clean = url => url.replace(/\/$/, "");
+        return {
+          page: clean(route.path),
+          title: document.title,
+          location: clean(window.location.href)
+        };
+      }
+    }
   },
   markdownit: {
     injected: true
