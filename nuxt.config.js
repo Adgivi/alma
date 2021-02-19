@@ -133,7 +133,7 @@ export default {
     id: "UA-189270284-2",
     dev: process.env.NODE_ENV !== "production",
     autoTracking: {
-      pageviewTemplate(route) {
+      pageviewTemplate: route => {
         const clean = url => url.replace(/\/$/, "");
         return {
           page: clean(route.path),

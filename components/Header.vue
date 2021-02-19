@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Logo from "@/assets/logo69.svg";
+import Logo from "@/assets/logo69-txt.svg";
 
 export default {
   components: { Logo }
