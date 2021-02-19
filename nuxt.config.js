@@ -144,7 +144,17 @@ export default {
     }
   },
   markdownit: {
-    injected: true
+    injected: true,
+    use: [
+      [
+        "markdown-it-link-attributes",
+        {
+          attrs: {
+            target: "_blank"
+          }
+        }
+      ]
+    ]
   },
   generate: {
     routes() {
