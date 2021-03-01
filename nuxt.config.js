@@ -150,7 +150,8 @@ export default {
         "markdown-it-link-attributes",
         {
           attrs: {
-            target: "_blank"
+            target: "_blank",
+            class: "anchor-accent"
           }
         }
       ]

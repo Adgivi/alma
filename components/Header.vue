@@ -22,7 +22,7 @@ export default {
   top: 0;
   width: 100vw;
   height: $layout-header-height;
-  //border-bottom: 2px solid $f-color__neutral-grey--semi-dark; // TODO: move to settings.colors
+  border-bottom: 2px solid $f-color__neutral-grey--light; // TODO: move to settings.colors
   background-color: rgba(255, 255, 255, 0.95);
   z-index: $z-index-header;
 

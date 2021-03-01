@@ -1,14 +1,21 @@
 a {
   text-decoration: none;
-  color: $f-color__primary;
+  color: $f-color__secondary;
   transition: color ease-in-out 300ms;
   &:hover {
-    color: $f-color__primary--semi-dark;
+    color: $f-color__primary--light;
   }
   &.anchor-dark {
     color: $f-color__neutral-grey;
     &:hover {
       color: $f-color__neutral-grey--semi-light;
     }
+  }
+  &.anchor-accent {
+    //color: $f-color__neutral-grey;
+    font-weight: 600;
+    //&:hover {
+    //  color: $f-color__neutral-grey--semi-light;
+    //}
   }
 }
