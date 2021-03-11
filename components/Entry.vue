@@ -108,7 +108,7 @@ $layout-breakpoint: $global-container-width;
     }
   }
   &__description {
-    max-height: 60px;
+    max-height: 62px;
     overflow: hidden;
     @media screen and (max-width: $layout-breakpoint) {
       max-height: none;
